@@ -139,7 +139,7 @@ header nav ul li a {
 .skills {
     padding: 20px 20px;
     background-color: #00000021;
-    background: url(/images/Blue\ mountain\ background.png) bottom center;
+    background: url(images/Blue\ mountain\ background.png) bottom center;
     box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.2);
     background-size: cover;
     display: flex;
