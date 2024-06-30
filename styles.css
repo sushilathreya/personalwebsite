@@ -22,6 +22,28 @@ header h1 {
     font-weight: 800;
 }
 
+header h1 a {
+    text-decoration: none;
+    color: #000;
+    transition: ease-in-out 0.1s;
+}
+
+
+header h1 a:hover {
+    text-decoration: none;
+    color: #E72929;
+}
+
+#current {
+    text-decoration: none;
+    color: #E72929;
+}
+
+#current:hover {
+    text-decoration: none;
+    color: #000;
+}
+
 header nav ul {
     list-style: none;
     display: flex;
@@ -250,4 +272,66 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #fff;
+}
+
+.contact button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.about, .work, .contact {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about h2, .work h2, .contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about p, .work p, .contact p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about ul, .work ul {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.about ul li, .work ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }

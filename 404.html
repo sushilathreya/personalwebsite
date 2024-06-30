@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var path = window.location.pathname;
+            if (path === '/about') {
+                window.location.replace('/about.html');
+            } else if (path === '/work') {
+                window.location.replace('/work.html');
+            } else if (path === '/contact') {
+                window.location.replace('/contact.html');
+            } else {
+                document.body.innerHTML = '<h1>Page Not Found</h1>';
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
