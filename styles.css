@@ -1,6 +1,6 @@
 body {
     font-family: Lato, sans-serif;
-    margin: 0;
+    margin: 80px 0 0 0;
     padding: 0;
 }
 
@@ -9,7 +9,11 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
+    top: 0;
     padding: 20px;
+    width: 100%;
+    position: fixed;
+    box-sizing: border-box;
 }
 
 header h1 {
@@ -21,8 +25,10 @@ header h1 {
 header nav ul {
     list-style: none;
     display: flex;
-   
+    margin: 0;
+    padding: 0;
     gap: 40px;
+    box-sizing: border-box;
 }
 
 header nav ul li {
@@ -34,6 +40,13 @@ header nav ul li {
 header nav ul li a {
     text-decoration: none;
     color: #000;
+    transition: ease-in-out 0.1s;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
+    color: #E72929;
+    transition: ease-in-out 0.1s;
 }
 
 .banner{
@@ -41,6 +54,7 @@ header nav ul li a {
     justify-content: center;
     align-items: center;
     padding: 0px 20px;
+    margin-top: 40px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -194,6 +208,42 @@ header nav ul li a {
 .memes-container img {
     width: 500px;
     height: auto;
+}
+
+.testimonials {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    justify-content: center;
+    text-align: center;
+}
+
+.testimonials  h2{
+    margin-bottom: 60px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.testimonial-author {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+    padding: 0;
+    line-height: 0;
+}
+
+.test-item {
+    justify-content: space-between;
+    margin: 60px;
+}
+
+.test-image {
+    margin: 0;
 }
 
 footer {
