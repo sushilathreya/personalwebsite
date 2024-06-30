@@ -1,0 +1,203 @@
+body {
+    font-family: Lato, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+   
+    gap: 40px;
+}
+
+header nav ul li {
+    margin: 0;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.banner{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 75px;
+    /* height: 100vh; */
+}
+
+.banner-text{
+    text-align: left;
+    width: 350px;
+    font-size: 18px;
+}
+
+.banner-text h2 {
+    font-size: 2.5em;
+}
+
+.banner-text p {
+    font-size: 1.2em;
+}
+
+.banner-text button {
+    background-color: red;
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: ease-in-out 0.3ms;
+}
+
+.image-caption{
+    font-weight: 400;
+}
+
+.banner-text button:hover {
+    scale: 1.05;
+}
+
+.banner-images{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    column-gap: 60px;
+}
+
+.banner-images img {
+    width: 250px;
+    height: 333px;
+}
+
+.banner-image-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    padding: 20px;
+}
+.companies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 530px;
+    border: 0.5px solid #00000026;
+    border-radius: 14px;
+}
+
+.company-logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: auto;
+    width: 100%;
+    padding: 40px 50px;
+}
+
+.companies-text-box {
+    position: absolute;
+    background-color: #ffffff;
+    transform: translateY(-130%);
+    padding: 0px 10px;
+}
+
+.skills {
+    padding: 20px 20px;
+    background-color: #00000021;
+    background: url(/images/Blue\ mountain\ background.png) bottom center;
+    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    height: 100vh;
+    margin-top: 70px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 100px;
+    padding: 100px 0;
+}
+
+.skills-header{
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.skill {
+    width: 250px;
+    border-top: 3px solid #fff;
+    text-align: left;
+}
+
+.skill h3 {
+    font-size: 20px;
+}
+
+.memes {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    justify-content: center;
+    text-align: center;
+}
+
+.memes h2{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.memes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.memes-container img {
+    width: 500px;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
