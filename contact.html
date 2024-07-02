@@ -8,20 +8,21 @@
 </head>
 <body>
     <header>
-        <h1>Sushil Athreya</h1>
+        <h1><a href="index.html">SUSHIL ATHREYA</a></h1>
         <nav>
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a id="current" href="contact.html">Contact</a></li>
+            <ul id="nav-links">
+              <li><a href="about.html">About</a></li>
+              <li><a href="work.html">Work</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
-        </nav>
+            <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
+          </nav>
     </header>
 
     <section class="contact">
         <h2>Contact Me</h2>
-        <p>If you'd like to get in touch, please fill out the form below or drop me a message at my email: <a href="mailto:sushil@example.com">sushil@example.com</a></p>
+        <p>If you'd like to get in touch, please fill out the form below or drop me a message at my email: <a href="mailto:sushilathreya@gmail.com">sushilathreya@gmail.com</a></p>
         <form action="submit_form.php" method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -29,7 +30,7 @@
             <input type="email" id="email" name="email" required>
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
+            <button class="cta" type="submit">Send Message</button>
         </form>
     </section>
 
@@ -37,4 +38,5 @@
         <p>&copy; 2024 Sushil Athreya</p>
     </footer>
 </body>
+<script src="script.js"></script> 
 </html>

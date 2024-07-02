@@ -10,12 +10,13 @@
     <header>
       <h1><a href="index.html">SUSHIL ATHREYA</a></h1>
       <nav>
-        <ul>
+        <ul id="nav-links">
           <li><a href="about.html">About</a></li>
           <li><a href="work.html">Work</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+        <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
       </nav>
     </header>
 
@@ -27,7 +28,7 @@
             I help tech companies grow their revenue using product led growth
             and email marketing
           </p>
-          <button>Drop me a message</button>
+          <button class="cta">Drop me a message</button>
         </div>
         <div class="banner-images">
           <div class="banner-image-item">
@@ -127,9 +128,10 @@
         </div>
       </div>
     </section>
-
     <footer>
       <p>&copy; 2024 Sushil Athreya</p>
     </footer>
+    
   </body>
+  <script src="script.js"></script> 
 </html>

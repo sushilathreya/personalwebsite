@@ -98,8 +98,8 @@ header nav ul li a:hover {
     font-size: 1.2em;
 }
 
-.banner-text button {
-    background-color: red;
+.cta {
+    background-color: #E72929;
     color: white;
     padding: 20px 30px;
     border: none;
@@ -107,15 +107,17 @@ header nav ul li a:hover {
     font-size: 18px;
     font-weight: 800;
     cursor: pointer;
-    transition: ease-in-out 0.3ms;
+    transition: ease-in-out 0.1s;
 }
 
 .image-caption{
     font-weight: 400;
 }
 
-.banner-text button:hover {
-    scale: 1.05;
+.cta:hover {
+    background-color: white;
+    color: #E72929;
+    border: solid 1px #E72929;
 }
 
 .banner-images{
@@ -128,6 +130,10 @@ header nav ul li a:hover {
 .banner-images img {
     width: 250px;
     height: 333px;
+}
+
+.banner-images img:hover {
+    cursor: url('images/custom-cursor.png'), pointer;
 }
 
 .banner-image-item {
@@ -387,4 +393,159 @@ footer {
     font-size: 0.9em;
     color: #777;
     margin-bottom: 10px;
+}
+
+
+/* Initial hidden state for nav links on smaller screens */
+#nav-links {
+    display: flex;
+}
+
+#hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    #hamburger {
+        display: block;
+    }
+}
+
+/* Show nav links when the menu is toggled */
+#nav-links.show {
+    display: flex;
+}
+
+
+
+/* Styles for responsiveness */
+
+@media (max-width: 1200px) {
+    .skills-container {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .skills-container .skill {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .banner {
+        padding: 0 10px;
+        row-gap: 40px;
+    }
+
+    .banner-images {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .banner-images img {
+        width: 80%;
+        height: auto;
+    }
+
+    .skills {
+        padding: 20px 10px;
+    }
+
+    .skills-container {
+        padding: 20px 10px;
+    }
+
+    .memes-container img {
+        width: 100%;
+    }
+
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog {
+        padding: 50px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 16px;
+    }
+
+    header nav ul {
+        width: 100%;
+        padding: 0;
+    }
+
+    .banner-text {
+        width: 100%;
+    }
+
+    .banner-text h2 {
+        font-size: 2em;
+    }
+
+    .banner-text p {
+        font-size: 1em;
+    }
+
+    .banner-text button {
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+
+    .skills {
+        padding: 20px 5px;
+    }
+
+    .skills-container {
+        padding: 20px 5px;
+    }
+
+    .memes-container img {
+        width: 100%;
+    }
+
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blog {
+        padding: 20px 5px;
+    }
 }
