@@ -139,7 +139,7 @@ header nav ul li a:hover {
 .banner-image-item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .hero-section{
@@ -157,6 +157,7 @@ header nav ul li a:hover {
     align-items: center;
     gap: 20px;
     width: 530px;
+    max-width: 75%;
     border: 0.5px solid #00000026;
     border-radius: 14px;
 }
@@ -171,12 +172,20 @@ header nav ul li a:hover {
     padding: 40px 50px;
 }
 
+.company-logos img{
+    
+    max-width: 40%;
+}
+
 .companies-text-box {
     position: absolute;
     background-color: #ffffff;
     transform: translateY(-130%);
     padding: 0px 10px;
+    max-width: 100%;
 }
+
+
 
 .skills {
     padding: 20px 20px;
@@ -189,7 +198,7 @@ header nav ul li a:hover {
     justify-content: center;
     text-align: center;
     color: #fff;
-    height: 100vh;
+    height: auto;
     margin-top: 70px;
 }
 
@@ -263,15 +272,22 @@ header nav ul li a:hover {
     text-decoration: underline;
     padding: 0;
     line-height: 0;
+    word-wrap: break-word;
+    max-width: 90%;
 }
 
 .test-item {
     justify-content: space-between;
     margin: 60px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .test-image {
     margin: 0;
+    max-width: 90%;
 }
 
 footer {
@@ -430,6 +446,58 @@ footer {
     #hamburger {
         display: block;
     }
+    .test-item {
+        justify-content: space-between;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .testimonial-author {
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: underline;
+        padding: 0;
+        line-height: 0;
+        text-align: center;
+    }
+    .testimonials {
+        padding: 10px;
+        background-color: #ffffff;
+        justify-content: center;
+        text-align: center;
+    }
+    .testimonials  h2{
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .memes h2{
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .banner-text{
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+    .banner-text p{
+        text-align: center;
+        width: 70%;
+        font-size: 12px;
+    }
+    .banner-images img {
+        max-width: 60%;
+    }
+    .banner-images{
+        display: none;
+    }
+    .cta {
+        font-size: 10px;
+        font-weight: 700;
+    }
 }
 
 /* Show nav links when the menu is toggled */
@@ -488,17 +556,38 @@ footer {
     .testimonial-container {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
 
     .blog {
         padding: 50px 10px;
     }
+    .hero-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        width: 100%;
+        padding: 20px;
+    }
+    .cta {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .skill h3 {
+        font-size: 14px;
+    }
+    .skill p {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 480px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         padding: 10px;
     }
 
@@ -509,6 +598,10 @@ footer {
     header nav ul {
         width: 100%;
         padding: 0;
+        font-size: 12px;
+    }
+    header nav ul li{
+        font-size: 12px;
     }
 
     .banner-text {
@@ -517,15 +610,14 @@ footer {
 
     .banner-text h2 {
         font-size: 2em;
+        margin: 10px 0 10px 0;
     }
 
     .banner-text p {
-        font-size: 1em;
-    }
-
-    .banner-text button {
-        padding: 15px 20px;
-        font-size: 16px;
+        text-align: center;
+        width: 70%;
+        font-size: 12px;
+        margin: 0 0 10px 0;
     }
 
     .skills {
@@ -543,9 +635,64 @@ footer {
     .testimonial-container {
         flex-direction: column;
         align-items: center;
+        row-gap: 10px;
+        padding: 10px;
     }
 
     .blog {
         padding: 20px 5px;
+    }
+    .test-item {
+        justify-content: space-between;
+        margin: 10px;
+    }
+    .testimonial-author {
+        font-size: 10px;
+        font-weight: 700;
+        text-decoration: underline;
+        padding: 0;
+        line-height: 1.5;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px;
+    }
+    .testimonials {
+        padding: 10px;
+        background-color: #ffffff;
+        justify-content: center;
+        text-align: center;
+    }
+    .hero-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding: 20px;
+    }
+    .cta {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 10px 20px;
+    }
+    .skills-header{
+        font-size: 18px;
+    }
+    .skill h3 {
+        font-size: 14px;
+        text-align: center;
+    }
+    .skill p {
+        font-size: 12px;
+    }
+    .companies-text-box {
+        position: absolute;
+        background-color: #ffffff;
+        transform: translateY(-145%);
+        padding: 0px 10px;
+        max-width: 90%;
+        font-size: 12px;
     }
 }
