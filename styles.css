@@ -273,7 +273,7 @@ header nav ul li a:hover {
     padding: 0;
     line-height: 0;
     word-wrap: break-word;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .test-item {
@@ -287,7 +287,7 @@ header nav ul li a:hover {
 
 .test-image {
     margin: 0;
-    max-width: 90%;
+    max-width: 100%;
 }
 
 footer {
