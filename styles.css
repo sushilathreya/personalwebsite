@@ -71,7 +71,7 @@ header nav ul li a:hover {
     transition: ease-in-out 0.1s;
 }
 
-.banner{
+.banner {
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -84,43 +84,52 @@ header nav ul li a:hover {
     /* height: 100vh; */
 }
 
-.banner-text{
+.banner-text {
     text-align: left;
     width: 350px;
-    font-size: 18px;
+    /* font-size: 18px; */
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .banner-text h2 {
-    font-size: 2.5em;
+    font-size: 45px;
+    margin: 0;
 }
 
 .banner-text p {
-    font-size: 1.2em;
+    font-size: 25px;
+    margin: 0;
+    line-height: 1;
+    font-weight: 400;
 }
 
 .cta {
     background-color: #E72929;
+    border: solid 1px #E72929;
     color: white;
     padding: 20px 30px;
-    border: none;
     border-radius: 12px;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: bold;
     cursor: pointer;
     transition: ease-in-out 0.1s;
+    text-decoration: none;
+    margin: 0;
+    width: fit-content;
 }
 
-.image-caption{
+.image-caption {
     font-weight: 400;
 }
 
 .cta:hover {
     background-color: white;
     color: #E72929;
-    border: solid 1px #E72929;
 }
 
-.banner-images{
+.banner-images {
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -132,24 +141,27 @@ header nav ul li a:hover {
     height: 333px;
 }
 
-.banner-images img:hover {
+/* .banner-images img:hover {
     cursor: url('images/custom-cursor.png'), pointer;
-}
+} */
 
 .banner-image-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-.hero-section{
+.hero-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     gap: 40px;
     width: 100%;
     padding: 20px;
 }
+
 .companies {
     display: flex;
     flex-direction: column;
@@ -162,7 +174,7 @@ header nav ul li a:hover {
     border-radius: 14px;
 }
 
-.company-logos{
+.company-logos {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -172,8 +184,8 @@ header nav ul li a:hover {
     padding: 40px 50px;
 }
 
-.company-logos img{
-    
+.company-logos img {
+
     max-width: 40%;
 }
 
@@ -209,7 +221,7 @@ header nav ul li a:hover {
     padding: 100px 0;
 }
 
-.skills-header{
+.skills-header {
     font-weight: 700;
     font-size: 28px;
 }
@@ -231,7 +243,7 @@ header nav ul li a:hover {
     text-align: center;
 }
 
-.memes h2{
+.memes h2 {
     font-size: 28px;
     font-weight: 700;
 }
@@ -247,6 +259,30 @@ header nav ul li a:hover {
     height: auto;
 }
 
+
+
+.tooltip {
+    position: absolute;
+    background-color: #E72929;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 15px; /* Adjust font size as needed */
+    z-index: 10; /* Ensure the tooltip is above other elements */
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, 100%)
+}
+
+.hover-img:hover + .tooltip {
+    visibility: visible;
+}
+
+.hover-img:hover{
+    cursor: url('images/custom-cursor.png'), pointer;
+}
+
 .testimonials {
     padding: 50px 20px;
     background-color: #ffffff;
@@ -254,7 +290,7 @@ header nav ul li a:hover {
     text-align: center;
 }
 
-.testimonials  h2{
+.testimonials h2 {
     margin-bottom: 60px;
     font-size: 28px;
     font-weight: 700;
@@ -296,7 +332,7 @@ footer {
     background-color: #fff;
 }
 
-.contact button {
+/* .contact button {
     background-color: red;
     color: white;
     padding: 10px 20px;
@@ -304,33 +340,41 @@ footer {
     cursor: pointer;
     font-size: 1em;
     border-radius: 5px;
-}
+} */
 
-.about, .work, .contact {
+.about,
+.work,
+.contact {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-.about h2, .work h2, .contact h2 {
+.about h2,
+.work h2,
+.contact h2 {
     font-size: 2em;
     margin-bottom: 20px;
 }
 
-.about p, .work p, .contact p {
+.about p,
+.work p,
+.contact p {
     font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.about ul, .work ul {
+.about ul,
+.work ul {
     text-align: left;
     margin: 0 auto;
     padding: 0;
     list-style: none;
 }
 
-.about ul li, .work ul li {
+.about ul li,
+.work ul li {
     margin-bottom: 10px;
     font-size: 1.1em;
 }
@@ -349,7 +393,8 @@ footer {
     margin-bottom: 5px;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
     width: 100%;
     padding: 10px;
     font-size: 1em;
@@ -446,12 +491,14 @@ footer {
     #hamburger {
         display: block;
     }
+
     .test-item {
         justify-content: space-between;
         margin: 10px;
         display: flex;
         flex-direction: column;
     }
+
     .testimonial-author {
         font-size: 12px;
         font-weight: 700;
@@ -460,22 +507,26 @@ footer {
         line-height: 0;
         text-align: center;
     }
+
     .testimonials {
         padding: 10px;
         background-color: #ffffff;
         justify-content: center;
         text-align: center;
     }
-    .testimonials  h2{
+
+    .testimonials h2 {
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: 700;
     }
-    .memes h2{
+
+    .memes h2 {
         font-size: 18px;
         font-weight: 700;
     }
-    .banner-text{
+
+    .banner-text {
         text-align: center;
         align-items: center;
         width: 100%;
@@ -483,17 +534,21 @@ footer {
         display: flex;
         flex-direction: column;
     }
-    .banner-text p{
+
+    .banner-text p {
         text-align: center;
         width: 70%;
         font-size: 12px;
     }
+
     .banner-images img {
         max-width: 60%;
     }
-    .banner-images{
+
+    .banner-images {
         display: none;
     }
+
     .cta {
         font-size: 10px;
         font-weight: 700;
@@ -562,7 +617,8 @@ footer {
     .blog {
         padding: 50px 10px;
     }
-    .hero-section{
+
+    .hero-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -572,13 +628,16 @@ footer {
         width: 100%;
         padding: 20px;
     }
+
     .cta {
         font-size: 10px;
         font-weight: 700;
     }
+
     .skill h3 {
         font-size: 14px;
     }
+
     .skill p {
         font-size: 12px;
     }
@@ -600,7 +659,8 @@ footer {
         padding: 0;
         font-size: 12px;
     }
-    header nav ul li{
+
+    header nav ul li {
         font-size: 12px;
     }
 
@@ -642,10 +702,12 @@ footer {
     .blog {
         padding: 20px 5px;
     }
+
     .test-item {
         justify-content: space-between;
         margin: 10px;
     }
+
     .testimonial-author {
         font-size: 10px;
         font-weight: 700;
@@ -656,13 +718,15 @@ footer {
         flex-wrap: wrap;
         margin: 5px;
     }
+
     .testimonials {
         padding: 10px;
         background-color: #ffffff;
         justify-content: center;
         text-align: center;
     }
-    .hero-section{
+
+    .hero-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -672,21 +736,26 @@ footer {
         width: 100%;
         padding: 20px;
     }
+
     .cta {
         font-size: 10px;
         font-weight: 700;
         padding: 10px 20px;
     }
-    .skills-header{
+
+    .skills-header {
         font-size: 18px;
     }
+
     .skill h3 {
         font-size: 14px;
         text-align: center;
     }
+
     .skill p {
         font-size: 12px;
     }
+
     .companies-text-box {
         position: absolute;
         background-color: #ffffff;
