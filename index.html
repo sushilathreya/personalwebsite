@@ -7,16 +7,22 @@
   <title>Sushil Athreya</title>
   <link rel="stylesheet" href="styles.css" />
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
 <body>
   <header>
-    <h1><a href="index.html">SUSHIL ATHREYA</a></h1>
+    <a href="index.html">
+      <div class="nav-logo">
+      <h1>Sushil Athreya</h1>
+      <img src="images/favicon.png"/> 
+    </div>
+  </a>
     <nav>
       <ul id="nav-links">
         <li><a href="about.html">About</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a target="_blank" href="https://drive.google.com/file/d/1Jt4q-51eFCzbutK3B5sHEbnDFX0oG0KK/view?usp=sharing">Resume</a></li>
+        <!-- <li><a href="blog.html">Blog</a></li> -->
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -52,7 +58,7 @@
           <p class="image-caption">The Art</p>
         </div>
         <div class="banner-image-item">
-          <img src="images/The Artist.png" class="hover-img" alt="Sushil Athreya Growth Marketer" data-tooltip="Itsa me 🤌🏽" />
+          <img src="images/The Artist.png" class="hover-img" alt="Sushil Athreya Growth Marketer" data-tooltip="It's me" />
           <!-- <span class="tooltip" id="tooltip-span">Itsa me 🤌🏽</span> -->
           <p class="image-caption">The Artist</p>
         </div>
@@ -159,8 +165,8 @@
             <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
             <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i class="fab fa-spotify"></i></a>
-            <a href="https://www.youtube.com/@voiceofsushil" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://github.com/sushilathreya" target="_blank"><i class="fab fa-github"></i></a>
+            <!-- <a href="https://www.youtube.com/@voiceofsushil" target="_blank"><i class="fab fa-youtube"></i></a> -->
+            <!-- <a href="https://github.com/sushilathreya" target="_blank"><i class="fab fa-github"></i></a> -->
         </div>
         <p>&copy; 2024 Sushil Athreya</p>
     </div>
@@ -170,5 +176,14 @@
 </body>
 <script src="script.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVPDE9HBJ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BVPDE9HBJ6');
+</script>
 
 </html>

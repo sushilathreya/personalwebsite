@@ -28,21 +28,48 @@ header {
     z-index: 100;
 }
 
+.nav-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.nav-logo img{
+    height: 24px;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: ease-in-out 0.1s;
+    width: fit-content;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
 header h1 {
     margin: 0;
     font-size: 18px;
     font-weight: 800;
     color: var(--text-color);
-}
-
-header h1 a {
-    text-decoration: none;
-    color: var(--text-color);
     transition: ease-in-out 0.1s;
 }
 
+/* header h1 a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: ease-in-out 0.1s;
+} */
 
-header h1 a:hover {
+
+/* header h1 a:hover {
+    text-decoration: none;
+    color: var(--secondary);
+} */
+
+header a:hover h1 {
     text-decoration: none;
     color: var(--secondary);
 }
@@ -248,10 +275,11 @@ header nav ul li a:hover {
 
 .skills {
     padding: 20px 20px;
-    background-color: var(--text-color)21;
-    background: url(images/Blue\ mountain\ background.png) bottom center;
-    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.2);
-    background-size: cover;
+    /* background-color: var(--text-color)21;
+    background: url(images/Blue\ mountain\ background.png) bottom center; */
+    background-color: var(--maincolor);
+    /* box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.2); */
+    /* background-size: cover; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -259,6 +287,7 @@ header nav ul li a:hover {
     color: var(--maincolor);
     height: auto;
     margin-top: 70px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .skills-container {
@@ -271,16 +300,23 @@ header nav ul li a:hover {
 .skills-header {
     font-weight: 700;
     font-size: 28px;
+    color: var(--text-color);
 }
 
 .skill {
     width: 250px;
-    border-top: 3px solid var(--maincolor);
+    border-top: 3px solid var(--text-color);
     text-align: left;
 }
 
 .skill h3 {
     font-size: 20px;
+    color: var(--text-color);
+}
+
+.skill p {
+    color: var(--text-color);
+    margin: 0;
 }
 
 .memes {
@@ -390,8 +426,7 @@ footer {
 } */
 
 .about,
-.work,
-.contact {
+.work{
     max-width: 800px;
     margin: 0;
     text-align: center;
@@ -399,6 +434,40 @@ footer {
     flex-direction: column;
     row-gap: 20px;
 }
+
+.contact {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 40px 20px;
+    height: 70vh;
+}
+
+.contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.contact a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
 
 .about h2,
 .work h2,
@@ -512,6 +581,22 @@ footer p {
     line-height: 1.6;
 }
 
+.service-item strong {
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.service-item ul li {
+    font-size: 16px;
+    margin: 0;
+}
+
+.about-services-container {
+    display: flex;
+    flex-direction: column;
+    /* column-gap: 20px; */
+}
+
 .company-experience {
     margin-bottom: 30px;
 }
@@ -526,13 +611,18 @@ blockquote {
     font-size: 1.2em;
     margin: 20px 0;
     padding: 10px 20px;
-    background-color: #f4f4f4;
-    border-left: 5px solid var(--secondary);
+    background-color: rgba(8, 102, 146, 0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(8, 102, 146, 0.2);
+    /* border-radius: 12px; */
+    box-shadow: 0px 4px 30px rgba(8, 102, 146, 0.1);
+    display: none;
 }
 
 blockquote footer {
     font-size: 1em;
-    color: #666;
+    /* color: #666; */
+    background: transparent;
 }
 
 .hobbies .hobby {

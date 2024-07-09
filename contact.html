@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Sushil Athreya</title>
     <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
+
 <body>
     <header>
-        <h1><a href="index.html">SUSHIL ATHREYA</a></h1>
+        <a href="index.html">
+          <div class="nav-logo">
+          <h1>Sushil Athreya</h1>
+          <img src="images/favicon.png"/> 
+        </div>
+      </a>
         <nav>
-            <ul id="nav-links">
-              <li><a href="about.html">About</a></li>
-              <li><a href="work.html">Work</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a id="current" href="contact.html">Contact</a></li>
-            </ul>
-            <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
-          </nav>
+          <ul id="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a target="_blank" href="https://drive.google.com/file/d/1Jt4q-51eFCzbutK3B5sHEbnDFX0oG0KK/view?usp=sharing">Resume</a></li>
+            <!-- <li><a href="blog.html">Blog</a></li> -->
+            <li><a href="contact.html" id="current">Contact</a></li>
+          </ul>
+          <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </nav>
     </header>
 
     <section class="contact">
         <h2>Contact Me</h2>
-        <p>If you'd like to get in touch, please fill out the form below or drop me a message at my email: <a href="mailto:sushilathreya@gmail.com">sushilathreya@gmail.com</a></p>
-        <form action="submit_form.php" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <button class="cta" type="submit">Send Message</button>
-        </form>
+        <p>The best way to contact me is by sending an email to: <a href="mailto:sushilathreya@gmail.com">sushilathreya@gmail.com</a></p>
+        <p>The second best way to contact me is by DMing me on X (Twitter): <a href="https://x.com/sushilathreya" target="_blank">@sushilathreya</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Sushil Athreya</p>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i class="fab fa-spotify"></i></a>
+                <!-- <a href="https://www.youtube.com/@voiceofsushil" target="_blank"><i class="fab fa-youtube"></i></a> -->
+                <!-- <a href="https://github.com/sushilathreya" target="_blank"><i class="fab fa-github"></i></a> -->
+            </div>
+            <p>&copy; 2024 Sushil Athreya</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVPDE9HBJ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BVPDE9HBJ6');
+</script>
 </body>
-<script src="script.js"></script> 
+
 </html>
