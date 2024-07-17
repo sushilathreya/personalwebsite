@@ -172,6 +172,7 @@ header nav ul li a:hover {
     border-top: 0.2px solid var(--text-color);
     width: fit-content;
     max-width: 100%;
+    flex-wrap: wrap;
 }
 
 .trust-item {
@@ -758,7 +759,7 @@ blockquote footer {
         text-align: center;
         align-items: center;
         max-width: 100%;
-        font-size: 12px;
+        font-size: 14px;
         display: flex;
         flex-direction: column;
     }
@@ -766,7 +767,7 @@ blockquote footer {
     .body-text {
         text-align: center;
         width: 70%;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .banner-images img {
@@ -778,7 +779,7 @@ blockquote footer {
     }
 
     .cta {
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 700;
     }
 }
@@ -800,6 +801,7 @@ blockquote footer {
 
     .skills-container .skill {
         width: 100%;
+        border-top: 0.5px solid #00000030
     }
 }
 
@@ -830,6 +832,7 @@ blockquote footer {
 
     .skills-container {
         padding: 20px 10px;
+        row-gap: 30px;
     }
 
     .memes-container img {
@@ -891,7 +894,7 @@ blockquote footer {
         column-gap: 20px;
         background: var(--maincolor);
         align-items: center;
-        justify-content: left;
+        justify-content: space-between;
         /* box-shadow: 4px 5px 10px 3px #E7292920; */
         padding: 10px;
         border-top: 0.2px solid var(--text-color);
@@ -923,6 +926,7 @@ blockquote footer {
 
     .banner-text {
         width: 100%;
+        font-size: 14px;
     }
 
     .banner-text h2 {
@@ -933,7 +937,7 @@ blockquote footer {
     .body-text {
         text-align: center;
         width: 70%;
-        font-size: 12px;
+        font-size: 14px;
         margin: 0 0 10px 0;
     }
 
@@ -943,8 +947,13 @@ blockquote footer {
 
     .skills-container {
         padding: 20px 5px;
+        row-gap: 30px;
     }
 
+    .skill{
+        border-top: 0.2px solid #00000030;
+        text-align: center;
+    }
     .memes-container img {
         width: 100%;
     }
@@ -995,7 +1004,7 @@ blockquote footer {
     }
 
     .cta {
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 700;
         padding: 10px 20px;
     }
@@ -1026,6 +1035,7 @@ blockquote footer {
         flex-direction: column;
         row-gap: 5px;
         align-items: center;
+        background: none;
     }
     
     .trust-metrics {
@@ -1041,9 +1051,9 @@ blockquote footer {
     .trust-section {
         display: flex;
         column-gap: 20px;
-        background: var(--maincolor);
+        background: none;
         align-items: center;
-        justify-content: left;
+        justify-content: center;
         /* box-shadow: 4px 5px 10px 3px #E7292920; */
         padding: 10px;
         border-top: 0.2px solid var(--text-color);
