@@ -1051,3 +1051,114 @@ blockquote footer {
         max-width: 100%;
     }
 }
+
+/* Portfolio Section */
+/* Portfolio Section */
+.portfolio {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.portfolio h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.portfolio .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: #777;
+}
+
+.tag-filter {
+    margin-bottom: 30px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #eee;
+    color: #333;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tag:hover, .tag.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: left;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+    background: #fff;
+}
+
+.project-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-info p {
+    margin: 0 0 15px 0;
+    color: #666;
+}
+
+.project-info .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.project-info .tag {
+    background-color: #ffef96;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .project-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-cards {
+        grid-template-columns: 1fr;
+    }
+}

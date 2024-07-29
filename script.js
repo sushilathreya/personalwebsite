@@ -26,3 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function filterProjects(tag) {
+    const projects = document.querySelectorAll('.project-card');
+    const tags = document.querySelectorAll('.tag-filter .tag');
+    
+    tags.forEach(t => {
+        if (t.innerText.toLowerCase() === tag.toLowerCase() || (tag === 'all' && t.innerText.toLowerCase() === 'all')) {
+            t.classList.add('active');
+        } else {
+            t.classList.remove('active');
+        }
+    });
+    
+    projects.forEach(project => {
+        if (tag === 'all') {
+            project.style.display = 'block';
+        } else {
+            const projectTags = project.getAttribute('data-tags').split(' ');
+            if (projectTags.includes(tag)) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        }
+    });
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Sushil Athreya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="nav-logo">
+                <h1>Sushil Athreya</h1>
+                <img src="images/favicon.png" alt="Logo"/>
+            </div>
+        </a>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="/about">About</a></li>
+                <li><a href="/work">Work</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+
+    <section class="portfolio">
+        <h2>My Portfolio</h2>
+        <p class="subtitle">A showcase of my recent projects</p>
+
+        <div class="tag-filter">
+            <button class="tag" onclick="filterProjects('all')">All</button>
+            <button class="tag" onclick="filterProjects('tag1')">Tag1</button>
+            <button class="tag" onclick="filterProjects('tag2')">Tag2</button>
+            <button class="tag" onclick="filterProjects('tag3')">Tag3</button>
+        </div>
+
+        <div class="project-cards">
+            <div class="project-card" data-tags="tag1 tag2" onclick="location.href='/project1-details'">
+                <img src="images/project1-thumbnail.jpg" alt="Project 1 Thumbnail">
+                <div class="project-info">
+                    <h3>Project 1</h3>
+                    <p>A brief description of Project 1.</p>
+                    <div class="tags">
+                        <span class="tag">#tag1</span>
+                        <span class="tag">#tag2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tags="tag2 tag3" onclick="location.href='/project2-details'">
+                <img src="images/project2-thumbnail.jpg" alt="Project 2 Thumbnail">
+                <div class="project-info">
+                    <h3>Project 2</h3>
+                    <p>A brief description of Project 2.</p>
+                    <div class="tags">
+                        <span class="tag">#tag2</span>
+                        <span class="tag">#tag3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tags="tag1" onclick="location.href='/project3-details'">
+                <img src="images/project3-thumbnail.jpg" alt="Project 3 Thumbnail">
+                <div class="project-info">
+                    <h3>Project 3</h3>
+                    <p>A brief description of Project 3.</p>
+                    <div class="tags">
+                        <span class="tag">#tag1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tags="tag3" onclick="location.href='/project4-details'">
+                <img src="images/project4-thumbnail.jpg" alt="Project 4 Thumbnail">
+                <div class="project-info">
+                    <h3>Project 4</h3>
+                    <p>A brief description of Project 4.</p>
+                    <div class="tags">
+                        <span class="tag">#tag3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-tags="tag1 tag3" onclick="location.href='/project5-details'">
+                <img src="images/project5-thumbnail.jpg" alt="Project 5 Thumbnail">
+                <div class="project-info">
+                    <h3>Project 5</h3>
+                    <p>A brief description of Project 5.</p>
+                    <div class="tags">
+                        <span class="tag">#tag1</span>
+                        <span class="tag">#tag3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i class="fab fa-spotify"></i></a>
+            </div>
+            <p>&copy; 2024 Sushil Athreya</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
