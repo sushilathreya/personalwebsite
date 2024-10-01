@@ -1288,6 +1288,10 @@ blockquote footer {
     margin-bottom: 0px;
 }
 
+.portfolio-contact {
+    margin-top: 20px;
+}
+
 .cta-back {
     background-color: var(--secondary);
     border: solid 1px #E72929;
