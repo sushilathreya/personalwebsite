@@ -1209,6 +1209,12 @@ blockquote footer {
     font-size: 1.2em;
     color: #555;
 }
+.project-description b {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
 
 .project-images {
     display: flex;
@@ -1216,9 +1222,10 @@ blockquote footer {
     gap: 20px;
 }
 
-.project-images img {
-    width: 100%;
+.project-images {
+    max-width: 50%;
     border-radius: 8px;
+    margin-top: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1309,6 +1316,58 @@ blockquote footer {
 .cta-back:hover {
     background-color: white;
     color: #E72929;
+}
+
+.custom-table {
+    width: 100%;
+    max-width: 800px;
+    /* margin: 40px auto; */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.custom-table table {
+    width: 100%;
+    /* border-collapse: collapse; */
+}
+
+.custom-table th,
+.custom-table td {
+    text-align: center;
+    padding: 12px 15px;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+.custom-table th {
+    /* background-color: #E72929; */
+    color: var(--text-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-image {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* .custom-table tr:hover {
+    background-color: #f1f1f1;
+} */
+
+@media (max-width: 768px) {
+    .custom-table th,
+    .custom-table td {
+        font-size: 1em;
+        padding: 10px;
+    }
 }
 
 
