@@ -32,7 +32,7 @@
     <section class="project-details">
         <div class="project-header">
             <h2>How Flo can acquire 100,000 paying customers in India in 12 months</h2>
-            <img class="project-details-thumbnail" src="images/flo-thumbnail.png">
+            <img class="project-details-thumbnail" src="images/flo-thumbnail.png" onclick="openLightbox(this)">
         </div>
 
 
@@ -63,10 +63,12 @@
                 <h3>The Problem</h3>
                 <p>
                     How do you feel when you see this image?
-                    <img src="/images/flo-playing-sushil-athreya.webp" class="project-images">
+                    <img src="/images/flo-playing-sushil-athreya.webp" class="project-images"
+                        onclick="openLightbox(this)">
                     <br><br>
                     Let’s zoom out and see how someone who’s trying to conceive feels
-                    <img src="/images/flo-playing-mother-sushil-athreya.webp" class="project-images">
+                    <img src="/images/flo-playing-mother-sushil-athreya.webp" class="project-images"
+                        onclick="openLightbox(this)">
                     <br>
                     Women often don’t feel understood and need a non-judgmental guide through their journey of
                     womanhood. That’s where Flo comes in.
@@ -97,7 +99,8 @@
                 <!-- <br> -->
                 <h3>Your guiding light ✨</h3>
                 <b>Introducing Flora the Firefly - your guiding light through womanhood</b><br>
-                <img class="project-details-testimonials" src="images/introducing-flora.png">
+                <img class="project-details-testimonials clickable-image" src="images/introducing-flora.png"
+                    onclick=openLightbox(this)>
                 <br><b>Who is Flora?</b>
                 <p>Flora is an immortal firefly who has lived for hundreds of years. While she’s lived for so long, she
                     never ages and is still young at heart. Throughout her long lifetime, she has traveled across the
@@ -129,31 +132,179 @@
                 </ol>
                 </p>
                 <br><b>How will women interact with Flo?</b>
-                <p>We built an in-depth launch strategy + designed Flora’s app interaction for the Capstone. I will just show you the highlights here:<br><br>
+                <p>We built an in-depth launch strategy + designed Flora’s app interaction for the Capstone. I will just
+                    show you the highlights here:<br><br>
                 </p><br>
                 <section class="custom-table">
                     <table>
-                      <thead>
-                        <tr>
-                          <th>Invite to the launch event</th>
-                          <th>Flora merch</th>
-                          <th>Flora your fertility friend</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!-- <tr class="header">
+                        <thead>
+                            <tr>
+                                <th>Invite to the launch event</th>
+                                <th>Flora merch</th>
+                                <th>Flora your fertility friend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr class="header">
                           <td>Invite to the launch event</td>
                           <td>Flora merch</td>
                           <td>Flora your fertility friend</td>
                         </tr> -->
+                            <tr>
+                                <td><img class="table-image" src="/images/flo-launch-invite-sushil.webp"
+                                        alt="Flora Launch Invite" onclick="openLightbox(this)"></td>
+                                <td><img class="table-image" src="/images/flora-launch-merch-sushil.png"
+                                        alt="Flora Launch Merch" onclick="openLightbox(this)"></td>
+                                <td><img class="table-image" src="/images/flora-your-fertility-friend.png"
+                                        alt="Flora Your Fertility Friend" onclick="openLightbox(this)"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <h3>Understanding the market</h3>
+                <p>Why do women go to gynaecologists?</p>
+                <ol>
+                    <li>Pregnancy</li>
+                    <li>Period Related Abnormalities</li>
+                    <li>Pregnancy Scare</li>
+                    <li>PCOS/PCOD</li>
+                    <li>Infertility</li>
+                </ol>
+                <p>These could all be target markets for a brand that promotes female health and wellness</p>
+                <br>
+                <b>Competitor Analysis</b>
+                <p>We compared 13 different products to understand Flo’s standing in the market. Top competitors have
+                    similar ratings (4.5+) and Flo is up at the top with 4.7 with 10x more reviews. <br>
+                    Here's how Flo stands out</p>
+                <ul>
+                    <li>Overall Health Tracker (AI)</li>
+                    <li>Integrations with other apps</li>
+                    <li>ISO Certification</li>
+                    <li>Zero ads and community</li>
+                </ul>
+                <b>Market Sizing</b>
+                <img class="project-details-testimonials" src="images/flo-tam-sam-som-india.png"
+                    alt="Flo TAM SAM SOM India" onclick="openLightbox(this)">
+                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                    <span class="close">&times;</span>
+                    <img class="lightbox-content" id="lightbox-img">
+                </div>
+                <h3>Understanding Flo's ICPs</h3>
+                <section class="custom-table">
+                    <table>
+                      <thead>
                         <tr>
-                          <td><img class ="table-image" src="/images/flo-launch-invite-sushil.webp" alt="Flora Launch Invite"></td>
-                          <td><img class ="table-image" src="/images/flora-launch-merch-sushil.png" alt="Flora Launch Merch"></td>
-                          <td><img class ="table-image" src="/images/flora-your-fertility-friend.png" alt="Flora Your Fertility Friend"></td>
+                          <th>Goal priority</th>
+                          <th>Goal Type</th>
+                          <th>ICP 1 - Always prepared</th>
+                          <th>ICP 2 - Safe Sex</th>
+                          <th>ICP 3 - Trying to conceive</th>
+                          <th>ICP 4 - Pregnant</th>
+                          <th>ICP 5 - PCOS/PCOD</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Primary</td>
+                          <td>Personal</td>
+                          <td>They want to avoid embarrassing social situations, plan their trips, plan their events, and learn more about their bodies.</td>
+                          <td>Women want to remain sexually active while avoiding an unplanned pregnancy at all costs.</td>
+                          <td>Get a better awareness around pregnancy, and insights into information on medication and IVF and other infertility treatments</td>
+                          <td>Track baby’s progress for a better understanding</td>
+                          <td>To understand their body better and get the right direction for the treatment. Also, get  support from the community</td>
+                        </tr>
+                        <tr>
+                          <td>Secondary</td>
+                          <td>Functional</td>
+                          <td>Track periods and log symptoms to check predictions</td>
+                          <td>Track periods to check ovulation and take precautions as to avoid pregnancy. Also act as reminders to take birth control pills</td>
+                          <td>Log the period data so that they can track the ovulation every month without having to remember it/missing a window</td>
+                          <td>Get educated on the various trimesters and join the parent community for guidance and advice</td>
+                          <td>Track irregular periods to understand the cycle better</td>
                         </tr>
                       </tbody>
                     </table>
                   </section>
+                  <br><b>ICP Prioritization</b><br>
+                  <section class="custom-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>User Segment</th>
+                          <th>Priority</th>
+                          <th>Market Size</th>
+                          <th>% of userbase</th>
+                          <th>Willingness to pay</th>
+                          <th>Frequency of usage</th>
+                          <th>Adoption curve</th>
+                          <th>Distribution potential</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>ICP 1 - Basic Tracking</td>
+                          <td>P5</td>
+                          <td>₹8,500 crores</td>
+                          <td>50</td>
+                          <td class="red-highlight">Low</td>
+                          <td>2-3 times a month</td>
+                          <td class="green-highlight">Low</td>
+                          <td class="green-highlight">High</td>
+                        </tr>
+                        <tr>
+                            <td>ICP 2 - Safe Sex</td>
+                            <td>P4</td>
+                            <td>₹800 crores</td>
+                            <td>5</td>
+                            <td class="red-highlight">Low</td>
+                            <td>3-4 times a month</td>
+                            <td class="green-highlight">Low</td>
+                            <td class="green-highlight">High</td>
+                        </tr>
+                        <tr>
+                            <td>ICP 3 - Trying to Conceive</td>
+                            <td>P2</td>
+                            <td>₹2,000 crores</td>
+                            <td>13</td>
+                            <td class="green-highlight">High</td>
+                            <td>5-6 times a month</td>
+                            <td class="yellow-highlight">Moderate</td>
+                            <td class="yellow-highlight">Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>ICP 4 - Pregnant</td>
+                            <td>P3</td>
+                            <td>₹900 crores</td>
+                            <td>5</td>
+                            <td class="green-highlight">High</td>
+                            <td>8-10 times a month</td>
+                            <td class="yellow-highlight">Moderate</td>
+                            <td class="yellow-highlight">Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>ICP 5 - Pre-existing issues</td>
+                            <td>P1</td>
+                            <td>₹3,000 crores</td>
+                            <td>18</td>
+                            <td class="green-highlight">High</td>
+                            <td>5-6 times a month</td>
+                            <td class="green-highlight">Low</td>
+                            <td class="yellow-highlight">Moderate</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <br>
+                  <b>Who are our prioritized ICPs?</b>
+                  <p>Based on the above factors, our prioritized ICPs are:</p>
+                  <ol>
+                    <li>Women with pre-existing issues</li>
+                    <li>Women who are trying to conceive</li>
+                  </ol>
+                  
+
+                  
+
             </div>
 
             <section class="back-to-portfolio">
