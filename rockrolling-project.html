@@ -32,7 +32,11 @@
     <section class="project-details">
         <div class="project-header">
             <h2>Rockrolling the world - 70 countries in 24 hours</h2>
-            <img class="project-details-thumbnail"src="images/how-are-you-feeling-thumbnail.png">
+            <img class="project-details-thumbnail"src="images/how-are-you-feeling-thumbnail.png" onclick="openLightbox(this)"/>
+            <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                <span class="close">&times;</span>
+                <img class="lightbox-content" id="lightbox-img">
+            </div>
         </div>
         
 
@@ -59,7 +63,11 @@
                 </p>
                 <!-- <br> -->
                 <h3>Here are some reactions</h3>
-                <img class="project-details-testimonials" src="images/how-are-you-feeling-testimonials.png">
+                <img class="project-details-testimonials" src="images/how-are-you-feeling-testimonials.png" onclick="openLightbox(this)"/>
+                <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+                    <span class="close">&times;</span>
+                    <img class="lightbox-content" id="lightbox-img">
+                </div>
             </div>
 
     <section class="back-to-portfolio">
