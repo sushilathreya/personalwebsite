@@ -123,11 +123,15 @@ function renderArtiLikeBookmarks(){
       grid.innerHTML = cards;
       
       // Set OG image from first bookmark
-      if (items.length > 0 && items[0].media && items[0].media[0]) {
-        const firstImage = items[0].media[0].original || items[0].media[0].url || '';
-        document.getElementById('og-image').setAttribute('content', firstImage);
-        document.getElementById('twitter-image').setAttribute('content', firstImage);
-      }
+      setTimeout(() => {
+        if (items.length > 0 && items[0].media && items[0].media[0]) {
+          const firstImage = items[0].media[0].original || items[0].media[0].url || '';
+          const ogMeta = document.getElementById('og-image');
+          const twitterMeta = document.getElementById('twitter-image');
+          if (ogMeta) ogMeta.setAttribute('content', firstImage);
+          if (twitterMeta) twitterMeta.setAttribute('content', firstImage);
+        }
+      }, 100);
     })
     .catch(() => {
       grid.innerHTML = '<p style="text-align:center;color:#666">No bookmarks loaded yet.</p>';
