@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "text": "Untitled abstract piece inspires new painting.",
+    "author": {
+      "name": "Aria Zenith",
+      "screen_name": "@aria_zenith",
+      "profile_image_url": "https://example.com/images/aria.png"
+    },
+    "created_at": "2026-01-23T12:00:00Z",
+    "media": [
+      {"type": "image", "url": "https://example.com/images/art1.jpg"}
+    ],
+    "url": "https://x.com/aria_zenith/status/1"
+  },
+  {
+    "id": "2",
+    "text": "Portrait study: light on faces.",
+    "author": {
+      "name": "Nova Lune",
+      "screen_name": "@nova_lune",
+      "profile_image_url": "https://example.com/images/nova.png"
+    },
+    "created_at": "2026-01-22T09:00:00Z",
+    "media": [
+      {"type": "image", "url": "https://example.com/images/art2.jpg"}
+    ],
+    "url": "https://x.com/nova_lune/status/2"
+  }
+]
