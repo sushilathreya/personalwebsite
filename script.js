@@ -139,7 +139,8 @@ function renderArtiLikeBookmarks(){
           hour: '2-digit',
           minute: '2-digit'
         });
-        lastUpdatedEl.innerHTML = `<span style="float: left;">${items.filter(b => b.media && b.media[0]).length} pieces</span><span style="float: right;">Last updated: ${localTime}</span>`;
+        const pieceCount = items.filter(b => b.media && b.media[0]).length;
+        lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">Last updated: ${localTime}</span>`;
       })
       .catch(() => { /* ignore */});
   }
