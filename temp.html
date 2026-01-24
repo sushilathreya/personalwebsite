@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samurai Animation</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-logo h1 {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .nav-logo img {
+            height: 24px;
+            width: auto;
+        }
+
+        #nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 24px;
+        }
+
+        #nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: opacity 0.2s ease;
+        }
+
+        #nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        #hamburger {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            #nav-links {
+                display: none;
+            }
+            #hamburger {
+                display: block;
+            }
+        }
+
+        .animation-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .image-frame {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        #samurai-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .scroll-space {
+            position: relative;
+            z-index: 0;
+            height: 1200px;
+            width: 100%;
+        }
+
+        .next-section {
+            min-height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .next-section.visible {
+            opacity: 1;
+        }
+
+        .quote-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 36px;
+            font-weight: 300;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.5;
+            color: #000000;
+            padding: 40px;
+        }
+
+        .quote-text .highlight {
+            color: #E72929;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .quote-text {
+                font-size: 24px;
+                padding: 20px;
+                max-width: 90%;
+            }
+        }
+
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 24px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .loading-progress {
+            margin-top: 10px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        .frame-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #ffffff;
+            font-size: 14px;
+            opacity: 0.6;
+            z-index: 5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hero-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-text h2 {
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 300;
+            margin: 0 0 40px 0;
+            opacity: 0.9;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        .bamboo-button {
+            position: fixed;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: auto;
+            cursor: pointer;
+            background: linear-gradient(
+                90deg,
+                #2d5016 0%,
+                #4a7c28 25%,
+                #5a8c38 50%,
+                #4a7c28 75%,
+                #2d5016 100%
+            );
+            border: none;
+            border-radius: 8px;
+            padding: 18px 60px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 4px 0 rgba(0, 0, 0, 0.3),
+                0 8px 20px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bamboo-button::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .bamboo-button::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .bamboo-button:hover {
+            transform: translateX(-50%) translateY(2px);
+            box-shadow: 
+                0 2px 0 rgba(0, 0, 0, 0.3),
+                0 6px 15px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button:active {
+            transform: translateX(-50%) translateY(4px);
+            box-shadow: 
+                0 0 0 rgba(0, 0, 0, 0.3),
+                0 4px 10px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button {
+            position: fixed;
+            bottom: 250px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: auto;
+            cursor: pointer;
+            background: linear-gradient(
+                90deg,
+                #1a3009 0%,
+                #2d5016 15%,
+                #3d6020 30%,
+                #2d5016 45%,
+                #1a3009 60%,
+                #2d5016 75%,
+                #3d6020 90%,
+                #2d5016 100%
+            );
+            border: none;
+            border-radius: 25px;
+            padding: 18px 60px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            transition: all 0.15s ease;
+            position: relative;
+            overflow: hidden;
+            clip-path: none;
+            box-shadow: 
+                0 6px 0 rgba(0, 0, 0, 0.4),
+                0 12px 25px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 5%,
+                transparent 95%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            border-radius: 25px;
+            pointer-events: none;
+        }
+
+        .bamboo-button::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 15px 0 rgba(0, 0, 0, 0.3),
+                0 30px 0 rgba(0, 0, 0, 0.3),
+                0 45px 0 rgba(0, 0, 0, 0.3),
+                0 60px 0 rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .bamboo-button:hover {
+            transform: translateX(-50%) translateY(2px);
+            box-shadow: 
+                0 4px 0 rgba(0, 0, 0, 0.4),
+                0 10px 20px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button:active {
+            transform: translateX(-50%) translateY(4px);
+            box-shadow: 
+                0 2px 0 rgba(0, 0, 0, 0.4),
+                0 8px 15px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button.splitting {
+            transform: translateX(-50%) translateY(0) rotate(-15deg) translateX(-20px);
+            clip-path: polygon(0 0, 50% 50%, 0 100%);
+            opacity: 0 !important;
+        }
+
+        .bamboo-button.unsplitting {
+            transform: translateX(-50%) translateY(0) rotate(0deg);
+            clip-path: none;
+            opacity: 1;
+        }
+
+        @keyframes splitAnimation {
+            0% {
+                clip-path: none;
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+            }
+            100% {
+                clip-path: polygon(0 0, 50% 50%, 0 100%);
+                transform: translateX(-50%) translateY(0) rotate(-15deg) translateX(-20px);
+            }
+        }
+
+        @keyframes unsplitAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .bamboo-button.split-top {
+            position: fixed;
+            bottom: 250px;
+            left: 25%;
+            transform: translateX(-50%);
+            z-index: 9;
+            pointer-events: auto;
+            cursor: pointer;
+            background: linear-gradient(
+                90deg,
+                #1a3009 0%,
+                #2d5016 15%,
+                #3d6020 30%,
+                #2d5016 45%,
+                #1a3009 60%,
+                #2d5016 75%,
+                #3d6020 90%,
+                #2d5016 100%
+            );
+            border: none;
+            border-radius: 25px;
+            padding: 18px 60px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 
+                0 6px 0 rgba(0, 0, 0, 0.4),
+                0 12px 25px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button.split-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 5%,
+                transparent 95%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            border-radius: 25px;
+            pointer-events: none;
+        }
+
+        .bamboo-button.split-top::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 15px 0 rgba(0, 0, 0, 0.3),
+                0 30px 0 rgba(0, 0, 0, 0.3),
+                0 45px 0 rgba(0, 0, 0, 0.3),
+                0 60px 0 rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .bamboo-button.split-bottom {
+            position: fixed;
+            bottom: 250px;
+            left: 25%;
+            transform: translateX(-50%);
+            z-index: 10;
+            pointer-events: auto;
+            cursor: pointer;
+            background: linear-gradient(
+                90deg,
+                #1a3009 0%,
+                #2d5016 15%,
+                #3d6020 30%,
+                #2d5016 45%,
+                #1a3009 60%,
+                #2d5016 75%,
+                #3d6020 90%,
+                #2d5016 100%
+            );
+            border: none;
+            border-radius: 25px;
+            padding: 18px 60px;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0% 0%, 100% 100%, 0 100%);
+            opacity: 0;
+            transition: all 0.6s ease;
+            box-shadow: 
+                0 6px 0 rgba(0, 0, 0, 0.4),
+                0 12px 25px rgba(0, 0, 0, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .bamboo-button.split-bottom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 5%,
+                transparent 95%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+            border-radius: 25px;
+            pointer-events: none;
+        }
+
+        .bamboo-button.split-bottom::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 15px 0 rgba(0, 0, 0, 0.3),
+                0 30px 0 rgba(0, 0, 0, 0.3),
+                0 45px 0 rgba(0, 0, 0, 0.3),
+                0 60px 0 rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+        }
+
+        .bamboo-button.split-top.visible {
+            opacity: 1 !important;
+            transform: translateX(100%) translateY(-30px) rotate(15deg);
+        }
+
+        .bamboo-button.split-top.hiding {
+            opacity: 0;
+            transform: translateX(50%) translateY(0) rotate(0deg);
+        }
+        .bamboo-button.split-top.finished {
+            opacity: 0 !important;
+            transform: translateX(100%) translateY(-30px) rotate(15deg);
+        }
+
+        .bamboo-button.split-bottom.visible {
+            opacity: 1 !important;
+            transform: translateX(-50%) translateY(20px) rotate(15deg);
+        }
+
+        .bamboo-button.split-bottom.hiding {
+            opacity: 0;
+            transform: translateX(-50%) translateY(0) rotate(0deg);
+        }
+
+        .bamboo-button.split-bottom.finished {
+            opacity: 0 !important;
+            transform: translateX(-50%) translateY(20px) rotate(15deg);
+        }
+        @keyframes topPieceSplit {
+            0% {
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+            100% {
+                transform: translateX(-50%) translateY(-20px) rotate(-25deg) translateX(-30px);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+        }
+
+        @keyframes bottomPieceSplit {
+            0% {
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+            100% {
+                transform: translateX(-50%) translateY(20px) rotate(25deg) translateX(30px);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+        }
+
+        @keyframes topPieceUnsplit {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(-20px) rotate(-25deg) translateX(-30px);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+            }
+        }
+
+        @keyframes bottomPieceUnsplit {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(20px) rotate(25deg) translateX(30px);
+                clip-path: polygon(0% 0%, 100% 100%, 0 100%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0) rotate(0deg);
+                clip-path: polygon(0% 0%, 100% 100%, 0 100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 32px;
+            }
+            
+            .bamboo-button {
+                padding: 14px 40px;
+                font-size: 20px;
+                bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="https://www.sushilathreya.com" class="nav-logo">
+                <h1>Sushil Athreya</h1>
+                <img src="images/favicon.png"/> 
+            </a>
+            <ul id="nav-links">
+                <li><a href="https://sushilathreya.com/about">About</a></li>
+                <li><a target="_blank" href="https://drive.google.com/file/d/1Jt4q-51eFCzbutK3B5sHEbnDFX0oG0KK/view?usp=sharing">Resume</a></li>
+                <li><a href="https://sushilathreya.com/contact">Contact</a></li>
+            </ul>
+            <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
+        </nav>
+    </header>
+    <div class="loading" id="loading">
+        Loading Samurai Animation...
+        <div class="loading-progress" id="loading-progress">0/86 frames loaded</div>
+    </div>
+
+    <div class="animation-container">
+        <div class="image-frame">
+            <img id="samurai-img" src="" alt="Samurai Animation Frame">
+        </div>
+    </div>
+
+    <div class="scroll-space"></div>
+
+    <section class="next-section" id="next-section">
+        <div class="quote-text">
+            We don't stop playing because we grow old; we grow old because we stop playing. 
+            <span class="highlight">This is my playground.</span>
+        </div>
+    </section>
+
+    <div class="hero-text">
+        <h2>The only way is through</h2>
+    </div>
+
+    <button class="bamboo-button" id="main-button" onclick="breakThrough()">Break</button>
+    <button class="bamboo-button split-top" id="top-piece">Break</button>
+    <button class="bamboo-button split-bottom" id="bottom-piece">Break</button>
+
+    <div class="frame-counter hidden" id="frame-counter">Frame: 1/86</div>
+
+    <script>
+        class SamuraiAnimation {
+            constructor() {
+                this.totalFrames = 86;
+                this.images = [];
+                this.currentFrame = 1;
+                this.isLoaded = false;
+                this.scrollSpace = 1200;
+                this.isLoading = true;
+                this.cutSoundPlayed = false;
+                this.audioInitialized = false;
+
+                this.init();
+                this.initializeAudio();
+            }
+
+            initializeAudio() {
+                // Create and play a silent audio to initialize audio context
+                const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAAAQAEAAEAfAAAQAQABAAgAZGF0YQAAAAA=');
+                silentAudio.volume = 0;
+                silentAudio.play().catch(() => {});
+                this.audioInitialized = true;
+            }
+
+            init() {
+                this.preloadImages();
+            }
+
+            preloadImages() {
+                const loadingElement = document.getElementById('loading');
+                const progressElement = document.getElementById('loading-progress');
+                const samuraiImg = document.getElementById('samurai-img');
+                
+                let loadedCount = 0;
+
+                for (let i = 1; i <= this.totalFrames; i++) {
+                    const img = new Image();
+                    const frameNumber = i.toString().padStart(3, '0');
+                    img.src = `images/samurai animation/ezgif-frame-${frameNumber}.jpg`;
+                    
+                    img.onload = () => {
+                        loadedCount++;
+                        progressElement.textContent = `${loadedCount}/${this.totalFrames} frames loaded`;
+                        
+                        if (loadedCount === this.totalFrames) {
+                            this.onAllImagesLoaded();
+                        }
+                    };
+
+                    img.onerror = () => {
+                        console.error(`Failed to load frame ${i}`);
+                        loadedCount++;
+                        if (loadedCount === this.totalFrames) {
+                            this.onAllImagesLoaded();
+                        }
+                    };
+
+                    this.images.push(img);
+                }
+            }
+
+            onAllImagesLoaded() {
+                this.isLoaded = true;
+                this.isLoading = false;
+                
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('frame-counter').classList.remove('hidden');
+                
+                this.samuraiImg = document.getElementById('samurai-img');
+                this.samuraiImg.src = this.images[0].src;
+                
+                this.setupScrollListener();
+            }
+
+            setupScrollListener() {
+                let ticking = false;
+
+                const updateFrame = () => {
+                    const scrollY = window.pageYOffset;
+                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollProgress = Math.min(scrollY / maxScroll, 1);
+                    
+                    const targetFrame = Math.floor(scrollProgress * (this.totalFrames - 1)) + 1;
+                    
+                    if (targetFrame !== this.currentFrame) {
+                        this.currentFrame = targetFrame;
+                        this.updateImage();
+                        this.updateFrameCounter();
+                    }
+                    
+                    ticking = false;
+                };
+
+                const requestTick = () => {
+                    if (!ticking) {
+                        requestAnimationFrame(updateFrame);
+                        ticking = true;
+                    }
+                };
+
+                window.addEventListener('scroll', requestTick, { passive: true });
+                
+                updateFrame();
+            }
+
+            updateImage() {
+                if (this.isLoaded && this.images[this.currentFrame - 1]) {
+                    this.samuraiImg.src = this.images[this.currentFrame - 1].src;
+                }
+                
+                // Fade out hero text after frame 20
+                const heroText = document.querySelector('.hero-text');
+                if (heroText) {
+                    if (this.currentFrame > 20) {
+                        const opacity = Math.max(0, 1 - ((this.currentFrame - 20) / 10));
+                        heroText.style.opacity = opacity;
+                    } else {
+                        heroText.style.opacity = 0.9;
+                    }
+                }
+
+                // Split button at frame 75, reverse before frame 70
+                const mainButton = document.getElementById('main-button');
+                const topPiece = document.getElementById('top-piece');
+                const bottomPiece = document.getElementById('bottom-piece');
+                
+                if (this.currentFrame >= 75) {
+                    if (!this.cutSoundPlayed) {
+                        this.playCutSound();
+                        this.cutSoundPlayed = true;
+                    }
+                    mainButton.classList.add('splitting');
+                    mainButton.classList.remove('unsplitting');
+                    topPiece.classList.add('visible');
+                    topPiece.classList.remove('hiding');
+                    topPiece.classList.remove('finished');
+                    bottomPiece.classList.add('visible');
+                    bottomPiece.classList.remove('finished');
+                } else {
+                    this.cutSoundPlayed = false;
+                    mainButton.classList.remove('splitting');
+                    mainButton.classList.add('unsplitting');
+                    topPiece.classList.remove('visible');
+                    topPiece.classList.add('hiding');
+                    bottomPiece.classList.remove('visible');
+                    bottomPiece.classList.add('hiding');
+                }
+
+                if(this.currentFrame >= 84) {
+                    topPiece.classList.remove('visible');
+                    topPiece.classList.add('finished');
+                    bottomPiece.classList.remove('visible');
+                    bottomPiece.classList.add('finished');
+                }
+
+                // Show next section when reaching final frames
+                const nextSection = document.getElementById('next-section');
+                if (this.currentFrame >= 86) {
+                    nextSection.classList.add('visible');
+                    
+                    // Fade out samurai elements
+                    const animationContainer = document.querySelector('.animation-container');
+                    const heroText = document.querySelector('.hero-text');
+                    const mainButton = document.getElementById('main-button');
+                    const topPiece = document.getElementById('top-piece');
+                    const bottomPiece = document.getElementById('bottom-piece');
+                    
+                    if (animationContainer) animationContainer.style.opacity = '0';
+                    if (heroText) heroText.style.opacity = '0';
+                    if (mainButton) mainButton.style.opacity = '0';
+                    if (topPiece) topPiece.style.opacity = '0';
+                    if (bottomPiece) bottomPiece.style.opacity = '0';
+                } else {
+                    nextSection.classList.remove('visible');
+                    
+                    // Fade back in samurai elements
+                    const animationContainer = document.querySelector('.animation-container');
+                    const heroText = document.querySelector('.hero-text');
+                    const mainButton = document.getElementById('main-button');
+                    const topPiece = document.getElementById('top-piece');
+                    const bottomPiece = document.getElementById('bottom-piece');
+                    
+                    if (animationContainer) animationContainer.style.opacity = '1';
+                    if (heroText && this.currentFrame <= 30) heroText.style.opacity = Math.max(0, 1 - ((this.currentFrame - 20) / 10));
+                    if (mainButton) mainButton.style.opacity = '1';
+                    if (topPiece) topPiece.style.opacity = '0';
+                    if (bottomPiece) bottomPiece.style.opacity = '0';
+                }
+            }
+
+            updateFrameCounter() {
+                const counter = document.getElementById('frame-counter');
+                counter.textContent = `Frame: ${this.currentFrame}/${this.totalFrames}`;
+            }
+
+            playCutSound() {
+                try {
+                    const audio = new Audio('sounds/katana cut.mp3');
+                    audio.volume = 0.7;
+                    audio.play().catch(error => {
+                        console.error('Audio play failed:', error);
+                        // Fallback: try with absolute path
+                        const fallbackAudio = new Audio('./sounds/katana cut.mp3');
+                        fallbackAudio.volume = 0.7;
+                        fallbackAudio.play();
+                    });
+                } catch (error) {
+                    console.error('Audio creation failed:', error);
+                }
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '60px';
+                navLinks.style.right = '20px';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'rgba(255, 255, 255, 0.1)';
+                navLinks.style.backdropFilter = 'blur(20px)';
+                navLinks.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+                navLinks.style.borderRadius = '16px';
+                navLinks.style.padding = '20px';
+                navLinks.style.gap = '16px';
+            }
+        }
+
+        function breakThrough() {
+            // Initialize audio on first user interaction
+            if (!window.samuraiAnimation.audioInitialized) {
+                window.samuraiAnimation.initializeAudio();
+            }
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            window.samuraiAnimation = new SamuraiAnimation();
+        });
+
+        // Initialize audio on any user interaction
+        document.addEventListener('click', () => {
+            if (window.samuraiAnimation && !window.samuraiAnimation.audioInitialized) {
+                window.samuraiAnimation.initializeAudio();
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
