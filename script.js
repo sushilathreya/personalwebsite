@@ -122,15 +122,15 @@ function renderArtiLikeBookmarks(){
       }).join('');
       grid.innerHTML = cards;
       
-      // Set OG image from first bookmark
+      // Set OG image from latest bookmark (reverse order makes newest first)
       setTimeout(() => {
         if (items.length > 0 && items[0].media && items[0].media[0]) {
-          const firstImage = items[0].media[0].original || items[0].media[0].url || '';
-          console.log('Setting OG image to:', firstImage);
+          const latestImage = items[0].media[0].original || items[0].media[0].url || '';
+          console.log('Setting OG image to:', latestImage);
           const ogMeta = document.querySelector('meta[property="og:image"]');
           const twitterMeta = document.querySelector('meta[name="twitter:image"]');
-          if (ogMeta) ogMeta.setAttribute('content', firstImage);
-          if (twitterMeta) twitterMeta.setAttribute('content', firstImage);
+          if (ogMeta) ogMeta.setAttribute('content', latestImage);
+          if (twitterMeta) twitterMeta.setAttribute('content', latestImage);
         }
       }, 100);
     })
