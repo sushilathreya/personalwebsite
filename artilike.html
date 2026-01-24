@@ -69,18 +69,15 @@
         .artilike .subtitle {
           text-align: center; color: #555; margin-bottom: 8px;
         }
-.last-updated {
+        .last-updated {
           color: #999; 
           font-size: 0.75rem; 
           text-transform: uppercase; 
           letter-spacing: 1px; 
           margin: 40px 0; 
-          overflow: hidden;
-        }
-        .last-updated::after {
-          content: "";
-          display: table;
-          clear: both;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         @media (max-width: 900px) {
           .bookmarks-container {
@@ -155,7 +152,7 @@
       <h2>Art I like</h2>
       
       <div class="last-updated" id="artilike-last-updated">Last updated: loading...</div>
-      <div class="bookmarks-container" id="artilike-grid">
+      <div class="bookmarks-container" id="artilike-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;">
         <!-- Cards rendered by script.js -->
       </div>
     </section>

@@ -90,6 +90,7 @@ function renderArtiLikeBookmarks(){
     .then(r => r.json())
     .then(items => {
       const cards = items.filter(b => b.media && b.media[0]).reverse().map(b => {
+        console.log('Rendering card for:', b.author?.name || b.name || 'Unknown');
         const imageTag = (b.media && b.media[0]) ? `<div class="bookmark-media"><img src="${b.media[0].type === 'video' ? (b.media[0].thumbnail || b.media[0].url || '') : (b.media[0].type === 'animated_gif' ? b.media[0].thumbnail : (b.media[0].original || b.media[0].url || ''))}" alt="Artwork" onclick="openLightbox(this)" data-full="${b.media[0].type === 'video' ? (b.media[0].original || b.media[0].url || '') : (b.media[0].type === 'animated_gif' ? b.media[0].thumbnail : (b.media[0].original || b.media[0].url || ''))}" data-gif="${b.media[0].type === 'animated_gif' || b.media[0].type === 'video' ? b.media[0].url : ''}" /></div>` : '';
       const mediaTypeTag = b.media && b.media[0] ? (b.media.length > 1 ? 'MUL' : (b.media[0].type === 'animated_gif' || b.media[0].type === 'video' ? 'VID' : 'IMG')) : '';
         const caption = (b.full_text || b.text || '').replace(/https?:\/\/[^\s]+/g, '').trim();
@@ -131,16 +132,21 @@ function renderArtiLikeBookmarks(){
   // Update last_updated timestamp and count
   const lastUpdatedEl = document.getElementById('artilike-last-updated');
   if (lastUpdatedEl) {
-    fetch('data/last_updated.txt')
+    fetch('data/last_updated.txt?v=' + Date.now())
       .then(r => r.text())
       .then(t => {
-        const localTime = new Date(t.trim()).toLocaleString(undefined, { 
+        const localTime = new Date(t.trim()).toLocaleDateString(undefined, { 
           timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          hour: '2-digit',
-          minute: '2-digit'
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
         });
-        const pieceCount = items.filter(b => b.media && b.media[0]).length;
-        lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">Last updated: ${localTime}</span>`;
+        setTimeout(() => {
+          const pieceCount = document.querySelectorAll('.bookmark-card').length;
+          if (pieceCount > 0) {
+            lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">LAST UPDATED: ${new Date(t.trim()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>`;
+          }
+        }, 500);
       })
       .catch(() => { /* ignore */});
   }

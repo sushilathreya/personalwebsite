@@ -356,6 +356,15 @@ header nav ul li a:hover {
     visibility: hidden;
     pointer-events: none;
     transform: translate(-50%, 100%)
+  }
+}
+
+/* ArtiLike specific styles */
+.bookmarks-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
 }
 
 .hover-img:hover + .tooltip {
