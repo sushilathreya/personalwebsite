@@ -367,6 +367,8 @@ header nav ul li a:hover {
   align-items: stretch;
 }
 
+
+
 .hover-img:hover + .tooltip {
     visibility: visible;
 }
@@ -1433,4 +1435,17 @@ blockquote footer {
     .project-images {
         flex-direction: column;
     }
+}
+
+/* Responsive ArtiLike grid - moved to end for specificity */
+@media (max-width: 1024px) {
+  .bookmarks-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .bookmarks-container {
+    grid-template-columns: 1fr !important;
+  }
 }

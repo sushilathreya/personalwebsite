@@ -58,7 +58,7 @@ function openLightbox(image) {
   const lightboxImg = document.getElementById('lightbox-img');
   
   if (image.dataset.gif) {
-    // For GIFs, just open the GIF URL in new tab (CORS workaround)
+    // For GIFs, just open GIF URL in new tab (CORS workaround)
     window.open(image.dataset.gif, '_blank');
     return;
   } else {
@@ -90,9 +90,8 @@ function renderArtiLikeBookmarks(){
     .then(r => r.json())
     .then(items => {
       const cards = items.filter(b => b.media && b.media[0]).reverse().map(b => {
-        console.log('Rendering card for:', b.author?.name || b.name || 'Unknown');
         const imageTag = (b.media && b.media[0]) ? `<div class="bookmark-media"><img src="${b.media[0].type === 'video' ? (b.media[0].thumbnail || b.media[0].url || '') : (b.media[0].type === 'animated_gif' ? b.media[0].thumbnail : (b.media[0].original || b.media[0].url || ''))}" alt="Artwork" onclick="openLightbox(this)" data-full="${b.media[0].type === 'video' ? (b.media[0].original || b.media[0].url || '') : (b.media[0].type === 'animated_gif' ? b.media[0].thumbnail : (b.media[0].original || b.media[0].url || ''))}" data-gif="${b.media[0].type === 'animated_gif' || b.media[0].type === 'video' ? b.media[0].url : ''}" /></div>` : '';
-      const mediaTypeTag = b.media && b.media[0] ? (b.media.length > 1 ? 'MUL' : (b.media[0].type === 'animated_gif' || b.media[0].type === 'video' ? 'VID' : 'IMG')) : '';
+        const mediaTypeTag = b.media && b.media[0] ? (b.media.length > 1 ? 'MUL' : (b.media[0].type === 'animated_gif' || b.media[0].type === 'video' ? 'VID' : 'IMG')) : '';
         const caption = (b.full_text || b.text || '').replace(/https?:\/\/[^\s]+/g, '').trim();
         const authorAvatar = b.profile_image_url || b.author?.profile_image_url || '';
         const authorName = b.author?.name || b.name || '';
@@ -104,52 +103,59 @@ function renderArtiLikeBookmarks(){
             <div class="bookmark-meta">
               <img class="author-avatar" src="${authorAvatar}" alt="${authorName}">
               <div class="author-info">
-                <span class="author-name">${authorName}</span>
-                <span class="author-handle">${authorHandle}</span>
+                <span class="author-name">@${authorHandle}</span>
+                <span class="author-handle">${authorName}</span>
               </div>
             </div>
-<div class="bookmark-title" title="${caption}">${caption.length > 60 ? caption.substring(0, 57) + '...' : caption}</div>
-          <div style="display: flex; align-items: center; gap: 6px; justify-content: space-between;">
-            <a class="bookmark-link" href="${tweetUrl}" target="_blank" rel="noopener noreferrer">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              View original
-            </a>
-            ${mediaTypeTag ? `<span class="media-type-tag">${mediaTypeTag}</span>` : ''}
-          </div>
+            <div class="bookmark-title" title="${caption}">${caption.length > 60 ? caption.substring(0, 57) + '...' : caption}</div>
+            <div style="display: flex; align-items: center; gap: 6px; justify-content: space-between;">
+              <a class="bookmark-link" href="${tweetUrl}" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                View original
+              </a>
+              ${mediaTypeTag ? `<span class="media-type-tag">${mediaTypeTag}</span>` : ''}
+            </div>
           </div>
         </div>`;
       }).join('');
       grid.innerHTML = cards;
       
-
+      // Show placeholder initially, then update with count
+      lastUpdatedEl.innerHTML = '<span style="float: left;">Loading...</span>';
+      
+      // Update count and timestamp after cards render
+      setTimeout(() => {
+        const pieceCount = document.querySelectorAll('.bookmark-card').length;
+        if (pieceCount > 0 && lastUpdatedEl) {
+          const localTime = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+          lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">LAST UPDATED: ${localTime}</span>`;
+        }
+      }, 100);
     })
     .catch(() => {
       grid.innerHTML = '<p style="text-align:center;color:#666">No bookmarks loaded yet.</p>';
     });
-  // Update last_updated timestamp on each render if available
-  // Update last_updated timestamp and count
-  const lastUpdatedEl = document.getElementById('artilike-last-updated');
-  if (lastUpdatedEl) {
-    fetch('data/last_updated.txt?v=' + Date.now())
-      .then(r => r.text())
-      .then(t => {
-        const localTime = new Date(t.trim()).toLocaleDateString(undefined, { 
-          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-          month: 'short',
-          day: 'numeric',
-          year: 'numeric'
-        });
-        setTimeout(() => {
-          const pieceCount = document.querySelectorAll('.bookmark-card').length;
-          if (pieceCount > 0) {
-            lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">LAST UPDATED: ${new Date(t.trim()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>`;
-          }
-        }, 500);
-      })
-      .catch(() => { /* ignore */});
-  }
+    
+    // Update last_updated timestamp and count
+    const lastUpdatedEl = document.getElementById('artilike-last-updated');
+    if (lastUpdatedEl) {
+      fetch('data/last_updated.txt?v=' + Date.now())
+        .then(r => r.text())
+        .then(t => {
+          const localTime = new Date(t.trim()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+          
+          // Set count immediately after cards render
+          setTimeout(() => {
+            const pieceCount = document.querySelectorAll('.bookmark-card').length;
+            if (pieceCount > 0 && lastUpdatedEl) {
+              lastUpdatedEl.innerHTML = `<span style="float: left;">${pieceCount} pieces</span><span style="float: right;">LAST UPDATED: ${localTime}</span>`;
+            }
+          }, 500);
+        })
+        .catch(() => { /* ignore */});
+    }
 }
 
 document.addEventListener('DOMContentLoaded', renderArtiLikeBookmarks);

@@ -79,12 +79,18 @@
           justify-content: space-between;
           align-items: center;
         }
-        @media (max-width: 900px) {
+        .bookmarks-container {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          align-items: stretch;
+        }
+        @media (max-width: 1024px) {
           .bookmarks-container {
             grid-template-columns: repeat(2, 1fr);
           }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .bookmarks-container {
             grid-template-columns: 1fr;
           }
@@ -152,7 +158,7 @@
       <h2>Art I like</h2>
       
       <div class="last-updated" id="artilike-last-updated">Last updated: loading...</div>
-      <div class="bookmarks-container" id="artilike-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch;">
+      <div class="bookmarks-container" id="artilike-grid">
         <!-- Cards rendered by script.js -->
       </div>
     </section>
