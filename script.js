@@ -128,11 +128,19 @@ function renderArtiLikeBookmarks(){
       grid.innerHTML = '<p style="text-align:center;color:#666">No bookmarks loaded yet.</p>';
     });
   // Update last_updated timestamp on each render if available
+  // Update last_updated timestamp and count
   const lastUpdatedEl = document.getElementById('artilike-last-updated');
   if (lastUpdatedEl) {
     fetch('data/last_updated.txt')
       .then(r => r.text())
-      .then(t => { lastUpdatedEl.textContent = `Last updated: ${t.trim()}`; })
+      .then(t => {
+        const localTime = new Date(t.trim()).toLocaleString(undefined, { 
+          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        lastUpdatedEl.innerHTML = `<span style="float: left;">${items.filter(b => b.media && b.media[0]).length} pieces</span><span style="float: right;">Last updated: ${localTime}</span>`;
+      })
       .catch(() => { /* ignore */});
   }
 }
