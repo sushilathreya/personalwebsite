@@ -86,7 +86,7 @@ function closeLightbox() {
 function renderArtiLikeBookmarks(){
   const grid = document.getElementById('artilike-grid');
   if(!grid) return;
-  fetch('data/twitterBookmarks.json')
+  fetch('data/twitterBookmarks.json?v=' + Date.now())
     .then(r => r.json())
     .then(items => {
       const cards = items.filter(b => b.media && b.media[0]).reverse().map(b => {
