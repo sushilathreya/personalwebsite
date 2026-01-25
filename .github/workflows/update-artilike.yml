@@ -28,7 +28,7 @@ jobs:
           git add data/twitterBookmarks.json data/last_updated.txt
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): daily update of twitterBookmarks.json"
-            git push origin HEAD:main
+            git push origin HEAD:master
           else
             echo "No changes to commit."
           fi
