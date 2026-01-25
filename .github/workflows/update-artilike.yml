@@ -18,7 +18,7 @@ jobs:
       - name: Fetch public twitterBookmarks.json
         run: |
           set -e
-          curl -sSL "https://gist.githubusercontent.com/sushilathreya/a1f829034015411d3d4b1c4ff6944c0f/raw/twitterBookmarks.json" -o data/twitterBookmarks.json
+          curl -sSL "https://gist.githubusercontent.com/sushilathreya/a1f829034015411d3d4b1c4ff6944c0f/raw" -o data/twitterBookmarks.json
           date -u +"%Y-%m-%dT%H:%M:%SZ" > data/last_updated.txt
 
       - name: Commit changes
