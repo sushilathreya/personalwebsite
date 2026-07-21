@@ -1,64 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Sushil Athreya</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact Sushil Athreya</title>
+  <meta name="description" content="Get in touch with Sushil Athreya.">
+  <meta name="theme-color" content="#2b9ce7">
+  <link rel="canonical" href="https://www.sushilathreya.com/contact">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="preload" href="images/sky-meadow-landscape.jpg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="contact.css?v=20260721-2">
 </head>
-
 <body>
-  <header>
-    <a href="https://www.sushilathreya.com">
-      <div class="nav-logo">
-      <h1>Sushil Athreya</h1>
-      <img src="images/favicon.png"/> 
-    </div>
-  </a>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="https://sushilathreya.com/about">About</a></li>
-        <li><a target="_blank" href="https://drive.google.com/file/d/1Jt4q-51eFCzbutK3B5sHEbnDFX0oG0KK/view?usp=sharing">Resume</a></li>
-        <!-- <li><a href="blog.html">Blog</a></li> -->
-        <li><a id="current" href="https://sushilathreya.com/contact">Contact</a></li>
-      </ul>
-      <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
-    </nav>
-  </header>
+  <main class="contact-sky">
+    <div class="contact-landscape" aria-hidden="true"></div>
+    <div class="contact-atmosphere" aria-hidden="true"></div>
 
-    <section class="contact">
-        <h2>Contact Me</h2>
-        <p>The best way to contact me is by sending an email to: <a href="mailto:sushilathreya@gmail.com">sushilathreya@gmail.com</a></p>
-        <p>The second best way to contact me is by DMing me on X (Twitter): <a href="https://x.com/sushilathreya" target="_blank">@sushilathreya</a></p>
+    <a class="back-to-sky" href="index.html">
+      <i class="fa-solid fa-plane" aria-hidden="true"></i>
+      <span>Back to the sky</span>
+    </a>
+
+    <section class="contact-copy" aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Contact Sushil</h1>
+      <button id="copy-email" class="email-button" type="button" data-email="sushilathreya@gmail.com">
+        <i class="fa-regular fa-copy" aria-hidden="true"></i>
+        <span>Copy email</span>
+      </button>
+      <span id="copy-status" class="visually-hidden" aria-live="polite"></span>
+      <a class="social-link" href="https://www.linkedin.com/in/sushil-athreya" target="_blank" rel="noopener noreferrer">
+        LinkedIn <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+      </a>
     </section>
 
-    <footer>
-        <div class="footer-container">
-            <div class="social-links">
-                <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i class="fab fa-spotify"></i></a>
-                <!-- <a href="https://www.youtube.com/@voiceofsushil" target="_blank"><i class="fab fa-youtube"></i></a> -->
-                <!-- <a href="https://github.com/sushilathreya" target="_blank"><i class="fab fa-github"></i></a> -->
-            </div>
-            <p>&copy; 2025 Sushil Athreya</p>
-        </div>
-    </footer>
+    <p class="contact-signoff">Sushil Athreya</p>
+  </main>
 
-    <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVPDE9HBJ6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BVPDE9HBJ6');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVPDE9HBJ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BVPDE9HBJ6');
+  </script>
+  <script src="contact.js?v=20260721-2"></script>
 </body>
-
 </html>
