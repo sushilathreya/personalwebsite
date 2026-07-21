@@ -270,11 +270,12 @@ function sampleTextCells(canvas, comparisonCanvas = null) {
   return sampled;
 }
 
-function rasterizeCursiveLine(fullText, visiblePrefix, fontSize) {
+function rasterizeCursiveLine(fullText, visiblePrefix, fontSize, letterSpacing = 0) {
   const measurementCanvas = document.createElement("canvas");
   const measurementContext = measurementCanvas.getContext("2d");
   const font = `${fontSize}px "Sacramento", cursive`;
   measurementContext.font = font;
+  measurementContext.letterSpacing = `${letterSpacing}px`;
   const metrics = measurementContext.measureText(fullText);
   const padding = Math.ceil(fontSize * 0.32);
   const ascent = Math.ceil(metrics.actualBoundingBoxAscent || fontSize * 0.76);
@@ -289,6 +290,7 @@ function rasterizeCursiveLine(fullText, visiblePrefix, fontSize) {
     canvas.height = canvasHeight;
     const context = canvas.getContext("2d");
     context.font = font;
+    context.letterSpacing = `${letterSpacing}px`;
     context.textBaseline = "alphabetic";
     context.lineCap = "round";
     context.lineJoin = "round";
@@ -329,14 +331,16 @@ function buildSkywritingLayout() {
   namePuffs = [];
   puffCounter = 0;
 
-  const fontSize = width < 700
-    ? Math.min(width * 0.092, height * 0.0736)
+  const isMobile = width < 700;
+  const fontSize = isMobile
+    ? Math.min(width * 0.092, height * 0.0736) * 1.05
     : Math.min(width * 0.0592, height * 0.104);
-  const angle = width < 700 ? -0.06 : -0.085;
-  const firstOrigin = point(width * 0.045, height * (width < 700 ? 0.085 : 0.052));
-  const secondOrigin = point(width * (width < 700 ? 0.06 : 0.065), height * (width < 700 ? 0.19 : 0.165));
-  const firstLine = rasterizeCursiveLine("Sushil", "Sushil", fontSize);
-  const secondLine = rasterizeCursiveLine("Athreya", "Athrey", fontSize);
+  const letterSpacing = isMobile ? fontSize * 0.025 : 0;
+  const angle = isMobile ? -0.06 : -0.085;
+  const firstOrigin = point(width * 0.045, height * (isMobile ? 0.085 : 0.052));
+  const secondOrigin = point(width * (isMobile ? 0.06 : 0.065), height * (isMobile ? 0.18 : 0.165));
+  const firstLine = rasterizeCursiveLine("Sushil", "Sushil", fontSize, letterSpacing);
+  const secondLine = rasterizeCursiveLine("Athreya", "Athrey", fontSize, letterSpacing);
   const firstVisible = transformPoints(firstLine.prefixPoints, firstOrigin.x, firstOrigin.y, angle);
   const secondVisible = transformPoints(secondLine.prefixPoints, secondOrigin.x, secondOrigin.y, angle);
   const finalLetterPoints = transformPoints(secondLine.finalPoints, secondOrigin.x, secondOrigin.y, angle);
