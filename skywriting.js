@@ -22,6 +22,11 @@ const coinSounds = Array.from({ length: 4 }, () => {
 });
 let coinSoundIndex = 0;
 
+function trackEvent(eventName, parameters = {}) {
+  if (typeof window.gtag !== "function") return;
+  window.gtag("event", eventName, parameters);
+}
+
 const point = (x, y) => ({ x, y });
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 const mix = (from, to, amount) => from + (to - from) * amount;
@@ -596,6 +601,7 @@ function revealReward(groupId) {
     storyCard.style.setProperty("--reveal-origin-x", "100%");
     storyCard.style.setProperty("--reveal-origin-y", "18%");
     animatePanelOpen(storyCard);
+    trackEvent("airmail_opened", { open_source: "coins" });
     collectibleStatus.textContent = "All three coins collected. Sushil's airmail service record is now open.";
     return;
   }
@@ -604,6 +610,7 @@ function revealReward(groupId) {
   contactReward.style.setProperty("--reveal-origin-x", "0%");
   contactReward.style.setProperty("--reveal-origin-y", "50%");
   animatePanelOpen(contactReward);
+  trackEvent("contact_opened", { open_source: "coins" });
   collectibleStatus.textContent = "All three coins collected. The Contact Sushil button is now available.";
 }
 
@@ -718,13 +725,32 @@ function positionRewardFromToken(token, panel) {
   panel.dataset.opens = `${opensDown ? "down" : "up"}-${opensRight ? "right" : "left"}`;
 }
 
-function registerDraggableToken(token, openReward) {
+function registerDraggableToken(token, openReward, rewardName) {
   let dragState = null;
   let suppressClick = false;
+  let keyboardMoveStart = null;
+  let keyboardMoveTimer;
+  const moveEventName = rewardName === "airmail" ? "airmail_moved" : "contact_moved";
+
+  const trackMove = (moveMethod, startPosition) => {
+    const position = tokenPositions.get(token);
+    if (!position || !startPosition) return;
+    const tokenWidth = position.width || token.offsetWidth;
+    const tokenHeight = position.height || token.offsetHeight;
+    trackEvent(moveEventName, {
+      move_method: moveMethod,
+      distance_px: Math.round(Math.hypot(position.x - startPosition.x, position.y - startPosition.y)),
+      final_x_percent: Math.round(((position.x + tokenWidth / 2) / width) * 100),
+      final_y_percent: Math.round(((position.y + tokenHeight / 2) / height) * 100),
+    });
+  };
 
   const finishDrag = (event) => {
     if (!dragState || event.pointerId !== dragState.pointerId) return;
-    if (dragState.dragged) suppressClick = true;
+    if (dragState.dragged) {
+      suppressClick = true;
+      trackMove("drag", { x: dragState.originX, y: dragState.originY });
+    }
     token.classList.remove("is-dragging");
     if (token.hasPointerCapture(event.pointerId)) token.releasePointerCapture(event.pointerId);
     dragState = null;
@@ -767,6 +793,7 @@ function registerDraggableToken(token, openReward) {
     event.preventDefault();
     if (!tokenPositions.has(token)) captureTokenPosition(token);
     const position = tokenPositions.get(token);
+    if (!keyboardMoveStart) keyboardMoveStart = { x: position.x, y: position.y };
     position.moved = true;
     const step = event.shiftKey ? 72 : 24;
     if (event.key === "ArrowLeft") position.x -= step;
@@ -774,6 +801,11 @@ function registerDraggableToken(token, openReward) {
     if (event.key === "ArrowUp") position.y -= step;
     if (event.key === "ArrowDown") position.y += step;
     clampTokenPosition(token);
+    window.clearTimeout(keyboardMoveTimer);
+    keyboardMoveTimer = window.setTimeout(() => {
+      trackMove("keyboard", keyboardMoveStart);
+      keyboardMoveStart = null;
+    }, 400);
   });
   token.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -803,6 +835,7 @@ function hideRewardToken(token) {
 function collapseStoryReward() {
   storyCard.classList.remove("is-visible");
   showRewardToken(storyToken);
+  trackEvent("airmail_closed");
   collectibleStatus.textContent = "Sushil's story was collapsed into the airmail icon.";
 }
 
@@ -810,12 +843,14 @@ function expandStoryReward() {
   positionRewardFromToken(storyToken, storyCard);
   hideRewardToken(storyToken);
   animatePanelOpen(storyCard);
+  trackEvent("airmail_opened", { open_source: "icon" });
   collectibleStatus.textContent = "Sushil's airmail service record is open.";
 }
 
 function collapseContactReward() {
   contactReward.classList.remove("is-visible");
   showRewardToken(contactToken);
+  trackEvent("contact_closed");
   collectibleStatus.textContent = "The contact button was collapsed into the telephone icon.";
 }
 
@@ -823,6 +858,7 @@ function expandContactReward() {
   positionRewardFromToken(contactToken, contactReward);
   hideRewardToken(contactToken);
   animatePanelOpen(contactReward);
+  trackEvent("contact_opened", { open_source: "icon" });
   collectibleStatus.textContent = "The Contact Sushil button is open.";
 }
 
@@ -1085,13 +1121,16 @@ function pointerHitsPlane(event) {
   return raycaster.intersectObject(plane, true).length > 0;
 }
 
-function setFlightMode(nextState) {
+function setFlightMode(nextState, inputMethod = "unknown") {
   if (!introComplete || nextState === isFlying) return;
   isFlying = nextState;
   document.body.classList.toggle("is-flying", isFlying);
   instructions.classList.toggle("is-flying", isFlying);
   clearButton.classList.toggle("is-visible", isFlying || userPuffs.length > 0);
   lastUserPuff = null;
+  trackEvent(isFlying ? "flight_drawing_started" : "flight_drawing_ended", {
+    input_method: inputMethod,
+  });
 
   if (isFlying) {
     targetPosition.copy(planePosition);
@@ -1111,7 +1150,7 @@ stage.addEventListener("pointerdown", (event) => {
   const hitsPlane = pointerHitsPlane(event);
   if (hitsPlane) {
     event.preventDefault();
-    setFlightMode(!isFlying);
+    setFlightMode(!isFlying, event.pointerType || "pointer");
     if (event.pointerType !== "mouse") stage.setPointerCapture(event.pointerId);
   }
 });
@@ -1136,7 +1175,7 @@ stage.addEventListener("pointerleave", () => {
 stage.addEventListener("keydown", (event) => {
   if ((event.key === "Enter" || event.key === " ") && introComplete) {
     event.preventDefault();
-    setFlightMode(!isFlying);
+    setFlightMode(!isFlying, "keyboard");
     return;
   }
 
@@ -1152,7 +1191,17 @@ stage.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && isFlying) setFlightMode(false);
+  if (event.key === "Escape" && isFlying) setFlightMode(false, "keyboard");
+});
+
+window.addEventListener("pagehide", () => {
+  if (!isFlying) return;
+  trackEvent("flight_drawing_ended", {
+    input_method: "system",
+    end_reason: "page_hidden",
+    transport_type: "beacon",
+  });
+  isFlying = false;
 });
 
 clearButton.addEventListener("pointerdown", (event) => event.stopPropagation());
@@ -1174,8 +1223,8 @@ contactCollapse.addEventListener("click", (event) => {
   event.stopPropagation();
   collapseContactReward();
 });
-registerDraggableToken(storyToken, expandStoryReward);
-registerDraggableToken(contactToken, expandContactReward);
+registerDraggableToken(storyToken, expandStoryReward, "airmail");
+registerDraggableToken(contactToken, expandContactReward, "contact");
 
 function resize() {
   width = window.innerWidth;
