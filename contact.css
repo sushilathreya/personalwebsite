@@ -1,0 +1,219 @@
+:root {
+  color-scheme: dark;
+  --white: #fffef5;
+  --deep-blue: #123f65;
+  --sun: #ffe179;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #2b9ce7;
+  color: var(--white);
+  font-family: "Avenir Next", Avenir, "Trebuchet MS", sans-serif;
+}
+
+.contact-sky {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: max(28px, env(safe-area-inset-top)) clamp(24px, 5.2vw, 104px) max(28px, env(safe-area-inset-bottom));
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.contact-landscape,
+.contact-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-landscape {
+  z-index: -2;
+  background: url("images/sky-meadow-landscape.jpg") center bottom / cover no-repeat;
+  transform: scale(1.02);
+  animation: contact-breathe 18s ease-in-out infinite alternate;
+}
+
+.contact-atmosphere {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(12, 78, 132, 0.28) 0%, rgba(9, 89, 151, 0.08) 48%, transparent 74%),
+    linear-gradient(180deg, rgba(0, 79, 154, 0.1), transparent 55%, rgba(18, 73, 25, 0.12));
+}
+
+.back-to-sky {
+  position: absolute;
+  top: max(28px, env(safe-area-inset-top));
+  left: clamp(24px, 5.2vw, 104px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-shadow: 0 2px 8px rgba(4, 48, 86, 0.35);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.back-to-sky i {
+  transform: rotate(-12deg);
+}
+
+.back-to-sky:hover,
+.back-to-sky:focus-visible {
+  outline: none;
+  opacity: 0.82;
+  transform: translateX(-3px);
+}
+
+.contact-copy {
+  width: min(620px, 78vw);
+  margin-top: -2vh;
+  text-shadow: 0 3px 18px rgba(5, 63, 110, 0.34);
+  animation: copy-arrives 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.contact-copy h1 {
+  max-width: 620px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 6.1vw, 112px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.email-button {
+  display: inline-flex;
+  margin-top: clamp(28px, 4vh, 44px);
+  min-height: 56px;
+  padding: 0 24px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 17px;
+  align-items: center;
+  gap: 12px;
+  color: var(--deep-blue);
+  background: var(--white);
+  box-shadow: 0 9px 25px rgba(6, 60, 101, 0.24);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  text-shadow: none;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.email-button:hover,
+.email-button:focus-visible {
+  outline: none;
+  transform: translateY(-3px);
+  box-shadow: 0 13px 31px rgba(6, 60, 101, 0.3);
+}
+
+.social-link {
+  display: inline-flex;
+  margin-left: 20px;
+  align-items: center;
+  gap: 7px;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.social-link i {
+  font-size: 11px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.contact-signoff {
+  position: absolute;
+  right: clamp(24px, 5.2vw, 104px);
+  bottom: max(28px, env(safe-area-inset-bottom));
+  margin: 0;
+  color: rgba(255, 255, 245, 0.84);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 9px rgba(4, 48, 86, 0.35);
+}
+
+@keyframes contact-breathe {
+  from { transform: scale(1.02) translate3d(-0.12%, 0, 0); }
+  to { transform: scale(1.035) translate3d(0.12%, -0.14%, 0); }
+}
+
+@keyframes copy-arrives {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .contact-sky {
+    align-items: start;
+    padding-top: max(118px, calc(env(safe-area-inset-top) + 92px));
+  }
+
+  .contact-landscape {
+    background-position: 48% bottom;
+  }
+
+  .contact-copy {
+    width: 100%;
+    margin: 0;
+  }
+
+  .contact-copy h1 {
+    font-size: clamp(48px, 15vw, 68px);
+  }
+
+  .email-button {
+    min-height: 52px;
+    padding: 0 20px;
+  }
+
+  .social-link {
+    margin-left: 14px;
+  }
+
+  .contact-signoff {
+    right: auto;
+    left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-landscape,
+  .contact-copy {
+    animation: none;
+  }
+}
