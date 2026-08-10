@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /blog
 
 Sitemap: https://www.sushilathreya.com/sitemap.xml
