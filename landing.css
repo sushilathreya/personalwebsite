@@ -552,6 +552,59 @@ body.is-flying #plane-stage {
   outline: none;
 }
 
+.sky-footer {
+  position: absolute;
+  z-index: 5;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%;
+  display: flex;
+  min-height: 36px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  align-items: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(9, 53, 87, 0.14);
+  box-shadow: 0 5px 18px rgba(8, 45, 75, 0.11);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.055em;
+  text-shadow: 0 2px 8px rgba(4, 48, 86, 0.35);
+  pointer-events: none;
+  translate: -50% 0;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sky-footer nav {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.sky-footer nav::before {
+  width: 1px;
+  height: 13px;
+  content: "";
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.sky-footer a {
+  color: #fff;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+.sky-footer a:hover,
+.sky-footer a:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .webgl-fallback,
 .noscript-title {
   position: absolute;
@@ -609,6 +662,7 @@ body.is-flying #plane-stage {
   }
 
   .flight-instructions {
+    bottom: max(72px, calc(env(safe-area-inset-bottom) + 72px));
     max-width: 210px;
   }
 
@@ -654,6 +708,10 @@ body.is-flying #plane-stage {
     top: 66%;
     left: 18px;
   }
+
+  .sky-footer {
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -668,5 +726,10 @@ body.is-flying #plane-stage {
 
   .reward-model {
     animation: none;
+  }
+
+  .sky-footer {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }

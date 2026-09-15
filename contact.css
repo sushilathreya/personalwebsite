@@ -155,16 +155,54 @@ body {
   border: 0 !important;
 }
 
-.contact-signoff {
+.contact-footer {
   position: absolute;
-  right: clamp(24px, 5.2vw, 104px);
+  z-index: 2;
   bottom: max(28px, env(safe-area-inset-bottom));
-  margin: 0;
+  left: 50%;
+  display: flex;
+  min-height: 36px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  align-items: center;
+  gap: 16px;
   color: rgba(255, 255, 245, 0.84);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  background: rgba(9, 53, 87, 0.14);
+  box-shadow: 0 5px 18px rgba(8, 45, 75, 0.11);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.055em;
   text-shadow: 0 2px 9px rgba(4, 48, 86, 0.35);
+  translate: -50% 0;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.contact-footer nav {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.contact-footer nav::before {
+  width: 1px;
+  height: 13px;
+  content: "";
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.contact-footer a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.contact-footer a:hover,
+.contact-footer a:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 @keyframes contact-breathe {
@@ -205,9 +243,8 @@ body {
     margin-left: 14px;
   }
 
-  .contact-signoff {
-    right: auto;
-    left: 24px;
+  .contact-footer {
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 }
 
@@ -215,5 +252,10 @@ body {
   .contact-landscape,
   .contact-copy {
     animation: none;
+  }
+
+  .contact-footer {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
