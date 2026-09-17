@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sushil Athreya Portfolio - Flo Growth</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260917-3">
+    <link rel="preload" href="images/sky-meadow-landscape.jpg" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="portfolio.css?v=20260917-3">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 
-<body>
-    <header>
+<body class="project-editorial-page">
+    <div class="portfolio-landscape" aria-hidden="true"></div>
+    <div class="portfolio-atmosphere" aria-hidden="true"></div>
+
+    <header class="portfolio-header">
         <a href="/">
             <div class="nav-logo">
                 <h1>Sushil Athreya</h1>
@@ -20,10 +25,9 @@
         </a>
         <nav>
             <ul id="nav-links">
-                <li><a href="/about">About</a></li>
-                <li><a href="/work">Work</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a aria-current="page" href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
             <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
         </nav>
@@ -35,8 +39,6 @@
             <img class="project-details-thumbnail" src="images/flo-thumbnail.png" onclick="openLightbox(this)">
         </div>
 
-
-        </div>
         <div class="project-content">
             <div class="project-description">
                 <h3>Overview</h3>
@@ -384,25 +386,30 @@
 
         </section>
 
-                  
+        <div class="flo-call-cta">
+            <p>For the full project details, book a call with me.</p>
+            <a class="cta" href="https://cal.com/sushil-athreya-uqgwpn/30min" target="_blank" rel="noopener noreferrer">Book call</a>
+        </div>
 
             </div>
-
             <section class="back-to-portfolio">
                 <p>Want to see more of my work?</p>
                 <a href="/portfolio.html" class="cta-back">Back to Portfolio</a>
             </section>
+        </div>
+    </section>
 
-            <footer>
-                <div class="footer-container">
-                    <div class="social-links">
-                        <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i
-                                class="fab fa-spotify"></i></a>
-                    </div>
-                    <p>&copy; 2025 Sushil Athreya</p>
+            <footer class="portfolio-footer">
+                <a class="footer-name" href="/">Sushil Athreya</a>
+                <nav aria-label="Footer navigation">
+                    <a href="/blog.html">Blog</a>
+                    <a href="/portfolio.html" aria-current="page">Portfolio</a>
+                    <a href="/contact.html">Contact</a>
+                </nav>
+                <div class="footer-socials" aria-label="Social links">
+                    <a href="https://x.com/sushilathreya" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/sushilathreya/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 </div>
             </footer>
 

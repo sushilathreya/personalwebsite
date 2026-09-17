@@ -107,7 +107,7 @@ button,
 .airmail-profile-card {
   --card-width: min(clamp(330px, 29vw, 430px), calc((100svh - 28px) * 0.75));
   --rule-height: calc(var(--card-width) * 0.04835);
-  --text-size: calc(var(--rule-height) * 0.64);
+  --text-size: calc(var(--rule-height) * 0.512);
   --baseline-offset: calc(var(--rule-height) * 0.69);
   --first-rule: calc(var(--card-width) * 0.1114);
   position: absolute;
@@ -166,7 +166,7 @@ button,
   height: var(--rule-height);
   line-height: var(--rule-height);
   white-space: nowrap;
-  font-size: 1.05em;
+  font-size: 0.84em;
 }
 
 .profile-name strong,
@@ -206,7 +206,7 @@ button,
 
 .combat-report h2 {
   height: var(--rule-height);
-  font-size: 1.08em;
+  font-size: 0.864em;
   line-height: var(--rule-height);
   text-transform: uppercase;
   letter-spacing: 0.035em;
@@ -303,7 +303,7 @@ button,
   color: #0d0d0d;
   background: #fff;
   box-shadow: 1px 4px 20px 7px rgba(0, 0, 0, 0.25);
-  font-size: clamp(15px, 0.98vw, 20px);
+  font-size: clamp(12px, 0.784vw, 16px);
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -324,7 +324,7 @@ button,
   align-items: center;
   justify-content: center;
   flex: 0 0 15px;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -351,7 +351,7 @@ button,
 
 .reward-collapse span {
   display: block;
-  font: 300 18px/21px "Avenir Next", Avenir, sans-serif;
+  font: 300 14.4px/16.8px "Avenir Next", Avenir, sans-serif;
   transform: translateY(-1px);
 }
 
@@ -461,7 +461,7 @@ button,
   border-radius: 999px;
   background: rgba(14, 54, 85, 0.62);
   color: white;
-  font-size: 12px;
+  font-size: 9.6px;
   letter-spacing: 0.04em;
   backdrop-filter: blur(8px);
 }
@@ -496,7 +496,7 @@ body.is-flying #plane-stage {
 .flight-instructions .eyebrow {
   display: block;
   margin-bottom: 5px;
-  font-size: 10px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -505,7 +505,7 @@ body.is-flying #plane-stage {
 .flight-instructions p {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(17px, 1.8vw, 24px);
+  font-size: clamp(13.6px, 1.44vw, 19.2px);
   line-height: 1.12;
 }
 
@@ -513,7 +513,7 @@ body.is-flying #plane-stage {
   display: block;
   margin-top: 7px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 10px;
+  font-size: 8px;
   letter-spacing: 0.04em;
 }
 
@@ -528,7 +528,7 @@ body.is-flying #plane-stage {
   color: white;
   background: rgba(9, 53, 87, 0.18);
   font: inherit;
-  font-size: 11px;
+  font-size: 8.8px;
   font-weight: 750;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -552,6 +552,79 @@ body.is-flying #plane-stage {
   outline: none;
 }
 
+.sky-footer {
+  position: absolute;
+  z-index: 5;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 50%;
+  display: flex;
+  min-height: 36px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  align-items: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(9, 53, 87, 0.14);
+  box-shadow: 0 5px 18px rgba(8, 45, 75, 0.11);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: 0.055em;
+  text-shadow: 0 2px 8px rgba(4, 48, 86, 0.35);
+  pointer-events: auto;
+  translate: -50% 0;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sky-footer nav {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.sky-footer nav a,
+.sky-footer .footer-socials a {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sky-footer .footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  pointer-events: auto;
+}
+
+.sky-footer .footer-socials a {
+  font-size: 18px;
+}
+
+.sky-footer nav::before {
+  width: 1px;
+  height: 13px;
+  content: "";
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.sky-footer a {
+  color: #fff;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+.sky-footer a:hover,
+.sky-footer a:focus-visible {
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .webgl-fallback,
 .noscript-title {
   position: absolute;
@@ -571,12 +644,12 @@ body.is-flying #plane-stage {
 .webgl-fallback p,
 .noscript-title {
   margin: 0;
-  font: 700 clamp(42px, 9vw, 120px)/0.9 Georgia, serif;
+  font: 700 clamp(33.6px, 7.2vw, 96px)/0.9 Georgia, serif;
 }
 
 .webgl-fallback span {
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 9.6px;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
@@ -609,6 +682,7 @@ body.is-flying #plane-stage {
   }
 
   .flight-instructions {
+    bottom: max(72px, calc(env(safe-area-inset-bottom) + 72px));
     max-width: 210px;
   }
 
@@ -642,7 +716,7 @@ body.is-flying #plane-stage {
     min-height: 52px;
     padding: 13px 19px;
     border-radius: 17px;
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .story-token {
@@ -653,6 +727,23 @@ body.is-flying #plane-stage {
   .contact-token {
     top: 66%;
     left: 18px;
+  }
+
+  .sky-footer {
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+    flex-direction: column;
+    gap: 4px;
+    padding: 7px 10px;
+    white-space: normal;
+  }
+
+  .sky-footer nav,
+  .sky-footer .footer-socials {
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
   }
 }
 
@@ -668,5 +759,10 @@ body.is-flying #plane-stage {
 
   .reward-model {
     animation: none;
+  }
+
+  .sky-footer {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }

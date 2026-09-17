@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work - Sushil Athreya</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260917-3">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
@@ -18,9 +18,8 @@
       </a>
         <nav>
           <ul id="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Work</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
           <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
@@ -44,7 +43,19 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Sushil Athreya</p>
+        <div class="footer-container">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="blog.html">Blog</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="social-links">
+                <a href="https://x.com/sushilathreya" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/sushilathreya/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            </div>
+            <a class="footer-name" href="index.html">Sushil Athreya</a>
+        </div>
     </footer>
 </body>
 <script src="script.js"></script> 

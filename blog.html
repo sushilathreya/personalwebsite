@@ -1,68 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Blog - Sushil Athreya</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Blog - Sushil Athreya</title>
+  <meta name="description" content="Essays by Sushil Athreya on marketing, behaviour, culture and the systems that shape what people do.">
+  <meta name="author" content="Sushil Athreya">
+  <meta name="theme-color" content="#2b9ce7">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.sushilathreya.com/blog">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="preload" href="images/sky-meadow-landscape.jpg" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="blog.css?v=20260917-2">
 </head>
+<body class="blog-page blog-index">
+  <a class="skip-link" href="#main-content">Skip to articles</a>
+  <div class="blog-landscape" aria-hidden="true"></div>
+  <div class="blog-atmosphere" aria-hidden="true"></div>
 
-<body>
-    <header>
-        <a href="index.html">
-            <div class="nav-logo">
-                <h1>Sushil Athreya</h1>
-                <img src="images/favicon.png" />
-            </div>
-        </a>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="work.html">Work</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
-        </nav>
-    </header>
+  <header class="blog-header">
+    <a class="back-to-sky" href="index.html">
+      <i class="fa-solid fa-plane" aria-hidden="true"></i>
+      <span>Back to the sky</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a aria-current="page" href="blog.html">Blog</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <section class="blog">
-        <h2>Blog (Under construction 👷🚧...This page was created by ChatGPT)</h2>
-        <p>Welcome to my blog! Here you'll find articles on growth marketing, product-led growth, email marketing
-            strategies, and much more.</p>
-
-        <div class="blog-posts">
-            <article class="blog-post">
-                <h3><a href="blog-post-1.html">Understanding Product-Led Growth</a></h3>
-                <p class="post-meta">Published on June 20, 2024</p>
-                <p>Product-led growth is a business methodology in which user acquisition, expansion, conversion, and
-                    retention are all driven primarily by the product itself...</p>
-            </article>
-
-            <article class="blog-post">
-                <h3><a href="blog-post-2.html">Effective Email Marketing Strategies</a></h3>
-                <p class="post-meta">Published on June 15, 2024</p>
-                <p>Email marketing remains one of the most cost-effective ways to reach your audience. In this article,
-                    we explore the most effective strategies to enhance your email marketing...</p>
-            </article>
-
-            <article class="blog-post">
-                <h3><a href="blog-post-3.html">Growth Hacking Tips for Startups</a></h3>
-                <p class="post-meta">Published on June 10, 2024</p>
-                <p>Startups need to grow fast to survive. Growth hacking involves finding unconventional ways to achieve
-                    rapid growth. Here are some tips to help your startup scale quickly...</p>
-            </article>
-        </div>
+  <main id="main-content" class="blog-main">
+    <section class="blog-intro" aria-labelledby="blog-heading">
+      <p class="eyebrow">Sushil Athreya · Writing</p>
+      <h1 id="blog-heading">Blog</h1>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Sushil Athreya</p>
-    </footer>
-</body>
-<script src="script.js"></script>
+    <section class="article-list" aria-label="Articles">
+      <article class="article-card">
+        <a class="article-card-link" href="/blog/how-indians-started-drinking-tea">
+          <div class="article-card-meta">
+            <span>7 min read</span>
+          </div>
+          <h2>How Indians started drinking tea</h2>
+          <div class="article-preview">
+            <p>If you pick an Indian at random and ask them how long their family has been drinking tea, they’ll probably tell you “bhai, forever”. It’s so engrained in…</p>
+          </div>
+          <span class="read-article">Read blog <span aria-hidden="true">→</span></span>
+        </a>
+      </article>
+    </section>
+  </main>
 
+  <footer class="blog-footer">
+    <a class="footer-name" href="index.html">Sushil Athreya</a>
+    <nav aria-label="Footer navigation">
+      <a href="blog.html">Blog</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-socials" aria-label="Social links">
+      <a href="https://x.com/sushilathreya" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/sushilathreya/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVPDE9HBJ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BVPDE9HBJ6');
+  </script>
+</body>
 </html>

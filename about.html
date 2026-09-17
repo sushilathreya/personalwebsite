@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Sushil Athreya</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260917-3">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="https://www.sushilathreya.com">
+        <a href="index.html">
           <div class="nav-logo">
           <h1>Sushil Athreya</h1>
           <img src="images/favicon.png"/> 
@@ -21,10 +21,9 @@
       </a>
         <nav>
           <ul id="nav-links">
-            <li><a id="current" href="https://sushilathreya.com/about">About</a></li>
-            <li><a target="_blank" href="https://drive.google.com/file/d/1Jt4q-51eFCzbutK3B5sHEbnDFX0oG0KK/view?usp=sharing">Resume</a></li>
-            <!-- <li><a href="blog.html">Blog</a></li> -->
-            <li><a href="https://sushilathreya.com/contact">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
           <div id="hamburger" onclick="toggleMenu()">&#9776;</div>
         </nav>
@@ -131,14 +130,19 @@
 
     <footer>
         <div class="footer-container">
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <a href="blog.html">Blog</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </nav>
             <div class="social-links">
                 <a href="https://x.com/sushilathreya" target="_blank"><i class="fab fa-x-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/sushil-athreya" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://open.spotify.com/artist/4nsXL03vcRJbN2FRFjZW6T" target="_blank"><i class="fab fa-spotify"></i></a>
+                <a href="https://www.instagram.com/sushilathreya/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 <!-- <a href="https://www.youtube.com/@voiceofsushil" target="_blank"><i class="fab fa-youtube"></i></a> -->
                 <!-- <a href="https://github.com/sushilathreya" target="_blank"><i class="fab fa-github"></i></a> -->
             </div>
-            <p>&copy; 2025 Sushil Athreya</p>
+            <a class="footer-name" href="index.html">Sushil Athreya</a>
         </div>
     </footer>
 
