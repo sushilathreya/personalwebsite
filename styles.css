@@ -1126,6 +1126,21 @@ blockquote footer {
     object-fit: cover;
 }
 
+.project-card-video {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #1b9ae8;
+}
+
+.project-card-media-empty {
+    width: 100%;
+    height: 200px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
 .project-info {
     padding: 20px;
     background: #fff;
@@ -1268,6 +1283,12 @@ blockquote footer {
     margin: 0 auto;
 }
 
+.project-details-video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .project-details-testimonials {
     /* padding: 50px 20px; */
     width: 90%;
@@ -1371,6 +1392,29 @@ blockquote footer {
     background-color: #f9f9f9;
 }
 
+.flo-call-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 850px;
+    margin: 28px auto 0;
+    padding: 24px 0 4px;
+    border-top: 1px solid #ddd;
+}
+
+.flo-call-cta p {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.flo-call-cta .cta {
+    flex: 0 0 auto;
+    padding: 14px 24px;
+    font-size: 16px;
+}
+
 .table-image {
     max-width: 300px;
     max-height: 300px;
@@ -1427,6 +1471,11 @@ blockquote footer {
     .custom-table td {
         font-size: 1em;
         padding: 10px;
+    }
+
+    .flo-call-cta {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 
