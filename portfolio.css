@@ -393,6 +393,15 @@ body.project-editorial-page {
   font: inherit;
 }
 
+.project-editorial-page .project-description iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 /* Keep dense project tables comfortably readable without enlarging the body copy. */
 .project-editorial-page .project-description table {
   font-size: 0.9em;
