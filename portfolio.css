@@ -190,6 +190,16 @@ body.project-editorial-page {
   transition: box-shadow 220ms ease, transform 220ms ease;
 }
 
+.portfolio-page a.project-card {
+  display: block;
+  text-decoration: none;
+}
+
+.portfolio-page a.project-card:focus-visible {
+  outline: 3px solid rgba(255, 254, 245, 0.95);
+  outline-offset: 6px;
+}
+
 .portfolio-page .project-card:nth-child(even) {
   transform: rotate(0.24deg);
 }
