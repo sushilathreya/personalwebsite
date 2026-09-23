@@ -27,8 +27,13 @@
   </url>
   <url>
     <loc>https://www.sushilathreya.com/portfolio</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-23</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sushilathreya.com/temp</loc>
+    <lastmod>2026-09-23</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.sushilathreya.com/email-quality-checklist-at-juno-project</loc>
