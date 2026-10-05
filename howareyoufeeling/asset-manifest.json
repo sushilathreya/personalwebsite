@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/howareyoufeeling/static/css/main.7ad3d9a1.css",
+    "main.js": "/howareyoufeeling/static/js/main.97f921bf.js",
+    "static/media/Rock.mp3": "/howareyoufeeling/static/media/Rock.0a6741a45c6cda02611a.mp3",
+    "index.html": "/howareyoufeeling/index.html",
+    "main.7ad3d9a1.css.map": "/howareyoufeeling/static/css/main.7ad3d9a1.css.map",
+    "main.97f921bf.js.map": "/howareyoufeeling/static/js/main.97f921bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ad3d9a1.css",
+    "static/js/main.97f921bf.js"
+  ]
+}
