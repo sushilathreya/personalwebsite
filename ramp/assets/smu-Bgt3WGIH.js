@@ -1,0 +1,6 @@
+var e=`# SMU Mustang Partners B2B initiative
+
+SMU Athletics announced its new B2B initiative with Ramp and NOCAP Sports on July 14, 2026. The announcement says businesses joining Ramp through SMU help generate proceeds for athletics and the student-athlete experience. SMU athletics partnership executive Sean Penix's launch post showed **80 reactions and 4 comments** when checked on November 23. [SMU Athletics release](https://smumustangs.com/news/2026/7/14/general-mustang-partners-introduces-b2b-initiative-announces-new-partnerships-with-nocap-sports-ramp) · [Penix's LinkedIn post](https://www.linkedin.com/posts/sean-penix-b0228130_gomustangs-smu-mustangpartners-activity-7482868699763302400-olrY)
+
+No number of activated Ramp accounts, proceeds credited to the Ramp relationship, or athlete payments attributable to the partnership was disclosed in the reviewed materials. SMU's earlier fundraising and overall revenue-sharing capacity cover wider university activity.
+`;export{e as default};

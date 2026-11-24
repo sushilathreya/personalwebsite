@@ -1,0 +1,6 @@
+var e=`# San Francisco 49ers partnership
+
+The 49ers and Ramp announced a multi-year partnership on October 8, 2026. The 49ers confirmed adoption of Ramp for expense and finance workflows, alongside agreed marketing presence at Levi's Stadium and on digital channels, executive events and hospitality. Ramp published a dedicated landing page, and the 49ers' LinkedIn feed shows a repost of Ramp's announcement. [49ers release](https://www.49ers.com/news/ramp-and-san-francisco-49ers-announce-new-multi-year-partnership) · [Ramp landing page](https://ramp.com/sf-49ers) · [49ers LinkedIn feed](https://my.linkedin.com/company/san-francisco-49ers)
+
+The accessible feeds did not expose counters for the exact announcement. The 49ers controller's comments on operational efficiency are qualitative. Team adoption, rights listed in the agreement, and Ramp's wider customer base do not establish activation delivery or revenue attribution. No verified stadium impressions, social counts, co-branded event attendance, partnership fee, leads or pipeline appeared in the public material reviewed November 23.
+`;export{e as default};

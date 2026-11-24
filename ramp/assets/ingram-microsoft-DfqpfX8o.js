@@ -1,0 +1,6 @@
+var e=`# Ingram Micro + Microsoft Marketplace launch
+
+Ramp announced the North American strategic agreement and Microsoft Marketplace availability on September 17, 2026. Ramp's Hillary Fernández shared the channel agreement and Microsoft purchasing pathway on LinkedIn. Her announcement displayed **80 reactions and 10 comments** when retrieved November 23. The public Marketplace page independently confirms the Ramp listing. [Ramp release](https://www.prnewswire.com/news-releases/ramp-teams-with-ingram-micro-is-now-available-on-microsoft-marketplace-302881489.html) · [Fernández's announcement](https://www.linkedin.com/posts/hillaryfernandez_ramp-ingram-micro-today-we-announced-activity-7506386344026247168-NaYk) · [Microsoft Marketplace listing](https://marketplace.microsoft.com/en-us/product/rampbusinesscorp1616431080834.ramp-finance-platform?tab=Overview)
+
+The release cites 70,000+ Ramp customers, $12B saved and 27M hours saved across Ramp at the time. Marketplace-specific redemptions, partner activations, Azure commitment consumption, transactions and revenue were unavailable.
+`;export{e as default};

@@ -1,0 +1,6 @@
+var e=`# The Snow League multi-season partnership
+
+The April 22, 2026 agreement named Ramp the league's exclusive corporate card and preferred fintech partner. The Snow League's announcement post showed **203 reactions and 11 comments** on November 23. CEO Omer Atesmen's individual April 22 announcement showed **108 reactions and 18 comments** on the same retrieval date. Both LinkedIn dates are from activity IDs. [League announcement](https://thesnowleague.com/news/ramp-named-official-exclusive-corporate-card-and-preferred-fintech-partner/) · [league's LinkedIn post](https://www.linkedin.com/posts/thesnowleague_the-snow-league-ramp-were-excited-to-activity-7452717881685020673-mm-a) · [CEO's LinkedIn post](https://www.linkedin.com/posts/omer-a-5291062_were-excited-to-welcome-ramp-as-the-official-activity-7452720693521240064-PF_W)
+
+The partnership announcement lays out plans for on-site activations, digital content and co-branded campaigns. Confirmed activation attendance, viewership attributable to Ramp, sponsorship fee and pipeline were unavailable. The league's partner page contains wider league distribution claims alongside other sponsors, without a Ramp allocation. [League partner directory](https://thesnowleague.com/partners/)
+`;export{e as default};
