@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /ramp/analytics.html
 
 Sitemap: https://www.sushilathreya.com/sitemap.xml
 Sitemap: https://www.sushilathreya.com/ramp/sitemap.xml
